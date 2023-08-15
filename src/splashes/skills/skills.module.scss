@@ -1,0 +1,70 @@
+@use "styles";
+
+.skills {
+  background: linear-gradient(to top left, #222, #666);
+  color: styles.$header-textColor;
+  padding: styles.$standardVerticalMargin styles.$outsideMargin;
+
+  h2 {
+    @include styles.section-header();
+
+    @include styles.horizontal-tablet {
+      margin-bottom: 0;
+    }
+
+    @include styles.vertical-tablet {
+      margin-bottom: 0;
+    }
+
+    @include styles.phone {
+      margin-bottom: 0;
+    }
+  }
+
+  .columns {
+    @include styles.columns(3);
+    align-items: stretch;
+
+    article {
+      margin-top: 0;
+      margin-bottom: 0;
+
+      hgroup {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 3em;
+
+        .iconWrapper {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 1em;
+        }
+
+        @include styles.horizontal-tablet {
+          margin-top: 3em;
+        }
+
+        @include styles.vertical-tablet {
+          margin-top: 3em;
+        }
+
+        @include styles.phone {
+          margin-top: 3em;
+        }
+
+        svg {
+          display: block;
+          height: 32px;
+          width: 32px;
+        }
+      }
+
+      p {
+        color: styles.$header-textColor;
+        margin: 0;
+        flex-grow: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@use 'theme';
+
+$headerColor: theme.$greyText;
+$entryHeaderColor: $headerColor;
+$textColor: theme.$darkGreyText;
+
+$iconColor: theme.$primary;
+$dateColor: theme.$secondary;
+$verticalBarColor: theme.$lightGreyText

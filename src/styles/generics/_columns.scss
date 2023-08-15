@@ -1,0 +1,59 @@
+@use "~/src/styles/sizes";
+@use "~/src/styles/splashes";
+
+@mixin -columns($numCols) {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
+  > * {
+    flex-basis: calc(100% / $numCols);
+    margin: splashes.$standardVerticalMargin;
+    margin-left: splashes.$insideMargin;
+    margin-right: splashes.$insideMargin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  > :first-child {
+    margin-left: splashes.$outsideMargin;
+  }
+
+  > :last-child {
+    margin-right: splashes.$outsideMargin;
+  }
+}
+
+@mixin -nocols {
+  min-width: 150px;
+  flex-direction: column;
+  padding: splashes.$standardVerticalMargin splashes.$outsideMargin;
+}
+
+@mixin columns($numCols) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  @include sizes.phone {
+    @include -nocols();
+  }
+
+  @include sizes.vertical-tablet {
+    @include -nocols();
+  }
+
+  @include sizes.horizontal-tablet {
+    @if $numCols > 2 {
+      @include -nocols();
+    } @else {
+      @include -columns($numCols);
+    }
+  }
+
+  @include sizes.desktop {
+    @include -columns($numCols);
+  }
+}

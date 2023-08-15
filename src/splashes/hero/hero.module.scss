@@ -1,0 +1,62 @@
+@use "styles" with (
+  $standardVerticalMargin: 12em
+);
+
+$titleSize: 48px;
+$logoMargin: styles.$imageMargin;
+
+.header {
+  @include styles.columns(2);
+  color: styles.$header-textColor;
+  background: linear-gradient(
+    to bottom right,
+    styles.$header-topLeftBackground,
+    styles.$header-bottomRightBackground
+  );
+
+  .websiteLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .websiteLogo {
+      height: $titleSize;
+      width: $titleSize;
+    }
+
+    .websiteTitle {
+      font-size: $titleSize;
+      line-height: $titleSize;
+      margin: 0;
+      margin-left: $logoMargin;
+      font-weight: 300;
+    }
+  }
+
+  sub {
+    margin-top: 0.8em;
+    font-size: 0.9em;
+  }
+
+  .links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a {
+      @include styles.link;
+    }
+
+    .descriptor {
+      padding-top: 15px;
+      padding-bottom: 14px;
+    }
+
+    .bar {
+      display: block;
+      background-color: styles.$header-barColor;
+      height: 1px;
+      width: 100%;
+    }
+  }
+}

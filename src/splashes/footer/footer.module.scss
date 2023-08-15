@@ -1,0 +1,76 @@
+@use "styles" with (
+  $outsideMargin: 16em,
+  $insideMargin: 8em,
+  $linkUnderlinePaddingOffset: 0px
+);
+
+.footer {
+  @include styles.columns(2);
+  @include styles.phone {
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+
+  color: #fff;
+  background: linear-gradient(
+    to top right,
+    styles.$theme-primary,
+    styles.$theme-secondary
+  );
+
+  > article {
+    width: 100%;
+  }
+
+  .footerTitle,
+  .footerLogo {
+    @include styles.section-header;
+    font-weight: 200;
+    margin: 0;
+    padding-bottom: 2em;
+  }
+
+  .footerLogo {
+    @include styles.phone {
+      margin-top: 3em;
+    }
+
+    @include styles.vertical-tablet {
+      margin-top: 3em;
+    }
+  }
+
+  .quickLinks,
+  .descriptions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .quickLinks {
+    a {
+      @include styles.link;
+      margin: 8px;
+    }
+  }
+
+  .descriptions {
+    li {
+      margin: 0;
+      padding: 0;
+    }
+
+    p {
+      margin: 0;
+      padding-top: 15px;
+      padding-bottom: 14px;
+    }
+  }
+
+  .bar {
+    display: block;
+    background-color: styles.$header-barColor;
+    height: 1px;
+    width: 100%;
+  }
+}

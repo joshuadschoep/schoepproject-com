@@ -1,0 +1,7 @@
+name: Integration
+on: pull_request
+jobs:
+  lint:
+    uses: ./.github/workflows/eslint.yml
+  test:
+    uses: ./.github/workflows/jest.yml

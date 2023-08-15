@@ -1,8 +1,8 @@
-name: "Lint"
+name: "Test"
 on: workflow_call
 
 jobs:
-  lint:
+  jest:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -13,10 +13,6 @@ jobs:
           cache: "npm"
       - name: Install Modules
         run: npm install
-      - name: Run ESLint
-        run: npm run lint:check
-      - name: Run Prettier
-        run: npm run prettify:check
-      - name: Run Typescript Compiler
-        run: npm run types:check
+      - name: Run Jest
+        run: npm run test:ci
       

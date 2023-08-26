@@ -5,7 +5,7 @@ import { LINKS, SUBTITLE, TITLE } from "./const";
 export const Hero = () => {
   return (
     <header className={styles.header}>
-      <article>
+      <article className={styles.titleCard}>
         <hgroup className={styles.websiteLabel}>
           <OpenBoxIcon className={styles.websiteLogo} />
           <h4 className={styles.websiteTitle}>{TITLE}</h4>

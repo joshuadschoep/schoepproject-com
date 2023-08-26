@@ -9,15 +9,15 @@ const descriptors = [
 
 const quickLinks = [
   {
-    href: "/",
+    href: "https://woodridgesoftware.com/",
     label: "Woodridge Website",
   },
   {
-    href: "/",
+    href: "https://www.linkedin.com/in/joshua-schoep/",
     label: "LinkedIn",
   },
   {
-    href: "/",
+    href: "https://assets.schoepproject.com/resume-february-2021.pdf",
     label: "Resume (PDF)",
   },
 ];
@@ -31,7 +31,9 @@ export const Footer = () => {
         <ul className={styles.quickLinks}>
           {quickLinks.map((link) => (
             <li>
-              <a href={link.href}>{link.label}</a>
+              <a href={link.href} target="_blank" rel="noreferrer">
+                {link.label}
+              </a>
             </li>
           ))}
         </ul>

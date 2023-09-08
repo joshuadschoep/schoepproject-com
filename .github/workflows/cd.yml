@@ -28,5 +28,6 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: build
+      - run: ls -al
       - run: ./.github/scripts/uploads3.sh
-        working-directory: ./build
+        working-directory: build

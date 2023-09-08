@@ -5,3 +5,5 @@ jobs:
     uses: ./.github/workflows/eslint.yml
   test:
     uses: ./.github/workflows/jest.yml
+  build:
+    uses: ./.github/workflows/build.yml

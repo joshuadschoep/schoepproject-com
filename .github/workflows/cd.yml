@@ -25,5 +25,8 @@ jobs:
           role-to-assume: ${{ secrets.IAMROLE_GITHUB }}
           role-session-name: Github-Actions-Deploy
           aws-region: ${{ secrets.AWS_REGION }}
+      - uses: actions/download-artifact@v3
+        with:
+          name: build
       - run: ./.github/scripts/uploads3.sh
         working-directory: ./build

@@ -1,0 +1,29 @@
+name: Deployment
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+  deploy:
+    runs-on:
+      ubuntu-latest
+    needs:
+      build
+    env:
+      INDEX_FILE: ${{ secrets.INDEX_FILE }}
+      STATIC_FOLDER: ${{ secrets.STATIC_FOLDER }}
+      AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.IAMROLE_GITHUB }}
+          role-session-name: Github-Actions-Deploy
+          aws-region: ${{ secrets.AWS_REGION }}
+      - run: ./.github/scripts/uploads3.sh
+        working-directory: ./build

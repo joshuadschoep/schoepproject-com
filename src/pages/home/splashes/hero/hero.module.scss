@@ -1,0 +1,64 @@
+@use "styles" with (
+  $standardVerticalMargin: 12em
+);
+
+$titleSize: 48px;
+$mediumTitleSize: 40px;
+$smallTitleSize: 30px;
+$logoMargin: styles.$imageMargin;
+
+.header {
+  @include styles.columns(2);
+  color: styles.$header-textColor;
+  background: linear-gradient(
+    to bottom right,
+    styles.$header-topLeftBackground,
+    styles.$header-bottomRightBackground
+  );
+
+  .titleCard {
+    @include styles.vertical-tablet {
+      margin-bottom: 5em;
+    }
+
+    @include styles.phone {
+      margin-bottom: 5em;
+    }
+  }
+
+  .websiteLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include styles.vertical-tablet {
+      margin-bottom: 1em;
+    }
+
+    @include styles.phone {
+      margin-bottom: 1em;
+    }
+  }
+
+  .links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a {
+      @include styles.link;
+    }
+
+    .descriptor {
+      padding-top: 15px;
+      padding-bottom: 14px;
+    }
+
+    .bar {
+      display: block;
+      background-color: styles.$header-barColor;
+      height: 1px;
+      width: 100%;
+    }
+  }
+}

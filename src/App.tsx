@@ -1,18 +1,30 @@
 import "./App.scss";
-import { Hero, Skills, Timeline } from "./splashes";
-import { Footer } from "./splashes/footer/footer";
-import { Education } from "./splashes/education/education";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Home, Skills, Projects } from "pages";
+import { Footer, Header } from "components";
 
 function App() {
   return (
     <div className="root">
-      <Hero />
-      <Timeline />
-      <Skills />
-      <Education />
-      <Footer />
+      <Router>
+        <Routes>
+          <Route path="/" Component={Home} />
+          <Route path="/skills" Component={componentWithHeader(Skills)} />
+          <Route path="/projects" Component={componentWithHeader(Projects)} />
+        </Routes>
+      </Router>
     </div>
   );
 }
+
+const componentWithHeader = (Component: () => JSX.Element) => {
+  return () => (
+    <main>
+      <Header />
+      <Component />
+      <Footer />
+    </main>
+  );
+};
 
 export default App;

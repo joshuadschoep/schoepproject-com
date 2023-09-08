@@ -1,0 +1,22 @@
+@use "styles";
+
+.projects {
+  padding: styles.$standardVerticalMargin styles.$outsideMargin;
+
+  h2 {
+    text-align: center;
+  }
+
+  .projectSet {
+    column-count: 2;
+    margin-top: 3rem;
+
+    @include styles.tablet {
+      column-count: 1;
+    }
+
+    @include styles.phone {
+      column-count: 1;
+    }
+  }
+}

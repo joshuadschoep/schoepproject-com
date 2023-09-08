@@ -1,0 +1,74 @@
+@use "styles";
+
+$titleSize: 36px;
+$tabletTitleSize: 30px;
+$phoneTitleSize: 24px;
+$titleSizeBig: 48px;
+$tabletTitleSizeBig: 40px;
+$phoneTitleSizeBig: 30px;
+$logoMargin: styles.$imageMargin;
+
+@mixin sizes($size: $titleSize) {
+  height: $size;
+  font-size: $size;
+  line-height: $size;
+}
+
+.title {
+  color: styles.$header-textColor;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .titleRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .icon,
+    h1 {
+      @include sizes($titleSize);
+
+      @include styles.horizontal-tablet {
+        @include sizes($tabletTitleSize);
+      }
+
+      @include styles.vertical-tablet {
+        @include sizes($tabletTitleSize);
+      }
+
+      @include styles.phone {
+        @include sizes($phoneTitleSize);
+      }
+    }
+
+    h1 {
+      margin: 0;
+      margin-left: $logoMargin;
+      font-weight: 300;
+    }
+  }
+
+  sub {
+    margin-top: 0.8em;
+    font-size: 0.9em;
+  }
+}
+
+.title.big .icon,
+.title.big h1 {
+  @include sizes($titleSizeBig);
+
+  @include styles.horizontal-tablet {
+    @include sizes($tabletTitleSizeBig);
+  }
+
+  @include styles.vertical-tablet {
+    @include sizes($tabletTitleSizeBig);
+  }
+
+  @include styles.phone {
+    @include sizes($phoneTitleSizeBig);
+  }
+}

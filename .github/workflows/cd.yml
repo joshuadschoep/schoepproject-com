@@ -12,9 +12,9 @@ jobs:
     needs:
       build
     env:
-      INDEX_FILE: ${{ variables.INDEX_FILE }}
-      STATIC_FOLDER: ${{ variables.STATIC_FOLDER }}
-      AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+      INDEX_FILE: ${{ vars.INDEX_FILE }}
+      STATIC_FOLDER: ${{ vars.STATIC_FOLDER }}
+      AWS_S3_BUCKET: ${{ vars.AWS_S3_BUCKET }}
     permissions:
       id-token: write
       contents: read

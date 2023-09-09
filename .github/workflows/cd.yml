@@ -29,5 +29,4 @@ jobs:
         with:
           name: build
           path: build
-      - run: ls ~
-      - run: bash .github/scripts/uploads3.sh
+      - run: bash ./.github/scripts/uploads3.sh

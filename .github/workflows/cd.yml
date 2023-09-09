@@ -12,8 +12,8 @@ jobs:
     needs:
       build
     env:
-      INDEX_FILE: ${{ secrets.INDEX_FILE }}
-      STATIC_FOLDER: ${{ secrets.STATIC_FOLDER }}
+      INDEX_FILE: ${{ variables.INDEX_FILE }}
+      STATIC_FOLDER: ${{ variables.STATIC_FOLDER }}
       AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
     permissions:
       id-token: write
@@ -30,3 +30,4 @@ jobs:
           name: build
           path: build
       - run: bash ./.github/scripts/uploads3.sh
+        

@@ -15,12 +15,13 @@ jobs:
       INDEX_FILE: ${{ vars.INDEX_FILE }}
       STATIC_FOLDER: ${{ vars.STATIC_FOLDER }}
       AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+      AWS_CLOUDFRONT_DIST: ${{ secrets.AWS_CLOUDFRONT_DIST }}
     permissions:
       id-token: write
       contents: read
     steps:
       - uses: actions/checkout@v3
-      - uses: aws-actions/configure-aws-credentials@v1
+      - uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: ${{ secrets.IAMROLE_GITHUB }}
           role-session-name: Github-Actions-Deploy
@@ -31,4 +32,4 @@ jobs:
           path: build
       - run: bash ../.github/scripts/uploads3.sh
         working-directory: build
-        
+      - run: bash ./.github/scripts/invalidate.sh

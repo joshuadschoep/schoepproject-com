@@ -1,3 +1,4 @@
+pwd
 echo $STATIC_FOLDER;
 echo $INDEX_FILE;
 

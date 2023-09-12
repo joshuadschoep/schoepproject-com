@@ -1,6 +1,6 @@
 ## What is this PR and why do we need it?
 
-_Describe the problem or feature in addition to a reference to the Jira issue._
+_Describe the problem or feature._
 
 #### Pre-Merge Checklist (if applicable)
 

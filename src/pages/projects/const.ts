@@ -3,23 +3,15 @@ export const PROJECTS = [
     group: "Woodridge Software",
     projects: [
       {
-        title: "First National Bank Modernization",
-        link: {
-          name: "www.fnb-online.com",
-          href: "https://fnb-online.com",
-        },
+        title: "Automatic Loan & Account Applications",
         description:
-          "First National Bank hired Woodridge to revamp their online loan and account applications. We worked to design, develop, and secure their application webapp running on Temenos products Journey Manager (Groovy) and OpenUX (React, JavaScript). As part of the front-end team, I helped them to allow their customers to apply for as many products as they like, at the same time, with instant fraud security, qualification checks, and integration with Plaid and Alloy.",
+          "A large bank hired Woodridge to revamp their online loan and account applications. We worked to design, develop, and secure their application webapp running on Temenos products Journey Manager (Groovy) and OpenUX (React, JavaScript). As part of the front-end team, I helped them to allow their customers to apply for as many products as they like, at the same time, with instant fraud security, qualification checks, and integration with Plaid and Alloy.",
         skills: ["React", "Temenos OpenUX", "Temenos Journey Manager"],
       },
       {
-        title: "Frontdoor Payments Upgrade",
-        link: {
-          name: "www.frontdoor.com",
-          href: "https://www.frontdoor.com",
-        },
+        title: "Insurance Agency Payments Upgrade",
         description:
-          "Frontdoor is a thriving home and appliance insurance/repair company. They hired my team to help revamp and modernize their payments portal, both internal and external. We created React interfaces to handle creation and storage credit cards, bank accounts, and PayPal accounts, along with secure backend integrations via Stripe, JPMorgan's Paymentus platform, and PayPal's API.",
+          "A thriving home and appliance insurance/repair company hired Woodridge for help on their payments systems. They hired my team to revamp and modernize their payments portal, both internal and external. We created React interfaces to handle creation and storage credit cards, bank accounts, and PayPal accounts, along with secure backend integrations via Stripe, JPMorgan's Paymentus platform, and PayPal's API.",
         skills: [
           "Go (language)",
           "React",
@@ -32,11 +24,7 @@ export const PROJECTS = [
         ],
       },
       {
-        title: "Woodridge Timekeeping App",
-        link: {
-          name: "woodridgesoftware.com",
-          href: "https://woodridgesoftware.com",
-        },
+        title: "Time-Entry & Invoicing App",
         description:
           "Woodridge Software, as we grew and expanded, wanted to upgrade our timekeeping and invoicing software to accomodate the needs of both the business and engineering sides of the company. We moved from a PHP site with some JS functionality, into a modern Laravel 10, React 18 site on AWS. I led the front-end team for this, and helped iron out our React architecture that we would continue to use throughout my time at Woodridge.",
         skills: [

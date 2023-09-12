@@ -14,7 +14,7 @@ export const QUICK_LINKS = [
     label: "LinkedIn",
   },
   {
-    href: "https://assets.schoepproject.com/Joshua+Schoep+Resume+-+09-07-2023.pdf",
+    href: "https://assets.schoepproject.com/joshua-schoep-resume.pdf",
     label: "Resume (PDF)",
   },
 ];

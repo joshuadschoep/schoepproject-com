@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Personal outreach website of Joshua Schoep. The Schoep Project."
+    />
+    <link rel="manifest" href="%PUBLIC_URL/manifest.json" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://www.schoepproject.com/favicon.ico"
+    />
+
+    <title>The Schoep Project</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      letter-spacing: 1.05pt;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      display: flex;
+      justify-content: center;
+      padding: 3em;
+      background: linear-gradient(to right, #3399cc, #cc3399);
+    }
+
+    h1 {
+      color: white;
+      font-weight: 300;
+    }
+
+    main {
+      color: #999;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .left,
+    .right {
+      padding: 5px 10px;
+    }
+
+    .left {
+      text-align: right;
+      position: relative;
+    }
+
+    .left::after {
+      position: absolute;
+      content: "";
+      width: 2px;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background-color: #999;
+    }
+
+    h2,
+    p,
+    a {
+      padding: 5px;
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: #cc3399;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+
+    a:active {
+      color: #aa1177;
+    }
+  </style>
+  <body>
+    <header>
+      <h1>The Schoep Project</h1>
+    </header>
+    <main>
+      <div class="center">
+        <section class="left">
+          <h2>404</h2>
+          <p>Not Found</p>
+        </section>
+        <section class="right">
+          <a href="https://www.schoepproject.com/">Take me home</a>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

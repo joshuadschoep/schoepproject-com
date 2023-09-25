@@ -1,6 +1,6 @@
 export const LINKS = [
   {
-    label: "View my resume",
+    label: "View my PDF resume",
     href: "https://assets.schoepproject.com/joshua-schoep-resume.pdf",
     link: false,
     newPage: true,
@@ -13,6 +13,11 @@ export const LINKS = [
   {
     label: "Check out my work and projects",
     href: "/projects",
+    link: true,
+  },
+  {
+    label: "Get in contact",
+    href: "/contact",
     link: true,
   },
 ];

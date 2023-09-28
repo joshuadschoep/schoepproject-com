@@ -1,0 +1,61 @@
+@use "styles/colors";
+
+$formVerticalMargin: 5em !default;
+$inputVerticalMargin: 2rem !default;
+
+@mixin inputs {
+  form {
+    margin: $formVerticalMargin 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 300;
+  }
+
+  .formItem {
+    margin: $inputVerticalMargin 0;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.8rem;
+  }
+
+  input,
+  textarea {
+    box-sizing: border-box;
+    font-size: 1.2em;
+    padding: 0.8rem;
+    border: 1px solid #999;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  input[readonly],
+  textarea[readonly] {
+    background-color: #eee;
+    color: #999;
+  }
+
+  input:hover,
+  textarea:hover {
+    border-color: colors.$theme-secondary;
+  }
+
+  input:focus,
+  textarea:focus,
+  input:active,
+  textarea:active {
+    border-color: colors.$theme-secondary;
+    outline: 1px solid colors.$theme-secondary;
+  }
+
+  textarea {
+    resize: none;
+  }
+}

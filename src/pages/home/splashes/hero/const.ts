@@ -15,9 +15,4 @@ export const LINKS = [
     href: "/projects",
     link: true,
   },
-  {
-    label: "Get in contact",
-    href: "/contact",
-    link: true,
-  },
 ];

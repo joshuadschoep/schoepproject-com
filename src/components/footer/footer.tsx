@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { OpenBoxIcon } from "../../assets/svg/openBox";
 import { DESCRIPTORS, QUICK_LINKS } from "./const";
 import styles from "./footer.module.scss";
@@ -11,9 +12,17 @@ export const Footer = () => {
         <ul className={styles.quickLinks}>
           {QUICK_LINKS.map((link, index) => (
             <li key={index}>
-              <a href={link.href} target="_blank" rel="noreferrer">
-                {link.label}
-              </a>
+              {link.link ? (
+                <Link to={link.href}>{link.label}</Link>
+              ) : (
+                <a
+                  href={link.href}
+                  target={link.newPage ? "_blank" : ""}
+                  rel="noreferrer"
+                >
+                  {link.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>

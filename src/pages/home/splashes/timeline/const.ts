@@ -11,7 +11,7 @@ export const TIMELINE_ITEMS = [
       "Extended client relationship with below client to oversee full integration of PayPal into their customer-facing sites, along with handling of payment disputes and customer satisfaction after purchases.",
       "Advised clients on Scrum practices including implementing efficient backlog grooming sessions, writing testable acceptance criteria, and adding time for tech-debt while maintaining sprint velocity.",
     ],
-    startDate: "August 2021",
+    startDate: "August 2022",
     endDate: "Present",
   },
   {
@@ -24,8 +24,8 @@ export const TIMELINE_ITEMS = [
       "Single-handedly built a ReactJS reusable component to display and process a customer's payment methods, with built-in error handling and backend integration.",
       "Provided guidance for client developers implementing our services in React, Angular, and as a Web Component.",
     ],
-    startDate: "March 2020",
-    endDate: "July 2021",
+    startDate: "March 2021",
+    endDate: "July 2022",
   },
   {
     group: "CACI International",
@@ -38,7 +38,7 @@ export const TIMELINE_ITEMS = [
       "Automated Testing and Integration times were reduced from 1 hour 30 minutes to just over 20 minutes on average, including packaged Docker images.",
     ],
     startDate: "May 2020",
-    endDate: "February 2020",
+    endDate: "February 2021",
   },
   {
     group: "LGS Innovations",

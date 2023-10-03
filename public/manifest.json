@@ -1,25 +1,25 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "SchoepProject",
+  "name": "The Schoep Project",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "https://assets.schoepproject.com/www/favicon.ico",
       "sizes": "32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo128.png",
+      "src": "https://assets.schoepproject.com/www/favicon128.png",
       "type": "image/png",
       "sizes": "128x128"
     },
     {
-      "src": "logo512.png",
+      "src": "https://assets.schoepproject.com/www/favicon512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#ffffff",
+  "background_color": "#3399cc"
 }

@@ -1,4 +1,5 @@
 @use "styles/colors";
+@use "styles/sizes";
 
 $formVerticalMargin: 5em !default;
 $inputVerticalMargin: 2rem !default;
@@ -57,5 +58,34 @@ $inputVerticalMargin: 2rem !default;
 
   textarea {
     resize: none;
+  }
+
+  button {
+    font-size: 1em;
+    font-weight: 600;
+    padding: 0.8rem 1.2rem;
+    min-width: 6rem;
+    background-color: transparent;
+    border: 1px solid colors.$theme-primary;
+    border-radius: 0.6rem;
+    color: colors.$theme-primary;
+    cursor: pointer;
+  }
+
+  button:hover {
+    outline: 1px solid colors.$theme-primary;
+  }
+
+  @include sizes.tablet {
+    button {
+      font-size: 0.8em;
+    }
+  }
+
+  @include sizes.phone {
+    button {
+      width: 100%;
+      display: block;
+    }
   }
 }

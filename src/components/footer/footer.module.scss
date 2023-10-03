@@ -12,11 +12,12 @@
   }
 
   color: #fff;
-  background: linear-gradient(
-    to top right,
-    styles.$theme-primary,
-    styles.$theme-secondary
-  );
+  background: fixed
+    linear-gradient(
+      to top right,
+      styles.$theme-primary,
+      styles.$theme-secondary
+    );
 
   > article {
     width: 100%;

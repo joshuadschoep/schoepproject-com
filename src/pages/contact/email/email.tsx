@@ -49,7 +49,6 @@ export const Email = () => {
         anchorSelect={`#${ANCHOR}`}
         place="top"
         content="Copied!"
-        className={styles.tooltip}
         isOpen={tooltip}
       />
     </section>

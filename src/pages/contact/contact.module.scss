@@ -73,10 +73,58 @@
   form {
     @include styles.desktop {
       @include attached-form;
+
+      button[type="submit"] {
+        margin-top: 1em;
+        float: right;
+      }
     }
 
     @include styles.tablet {
       @include attached-form;
+
+      button[type="submit"] {
+        margin-top: 1em;
+        float: right;
+      }
     }
+
+    button {
+      transition-duration: 0.18s;
+      p {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    button[type="submit"].waiting:hover,
+    button[type="submit"].success:hover {
+      outline: none;
+      cursor: auto;
+    }
+
+    button[type="submit"]:not(.waiting):not(.success) {
+      background-color: styles.$theme-primary;
+      color: white;
+    }
+
+    button[type="submit"].success {
+      color: #11bb44;
+      border-color: #11bb44;
+
+      p {
+        animation: fadeIn 1.2s forwards;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

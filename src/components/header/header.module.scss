@@ -31,11 +31,12 @@ $logoMargin: styles.$imageMargin;
 
   padding: 3em;
   color: styles.$header-textColor;
-  background: linear-gradient(
-    to right,
-    styles.$header-topLeftBackground,
-    styles.$header-bottomRightBackground
-  );
+  background: fixed
+    linear-gradient(
+      to bottom right,
+      styles.$header-topLeftBackground,
+      styles.$header-bottomRightBackground
+    );
 
   display: flex;
   align-items: center;

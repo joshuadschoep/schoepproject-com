@@ -1,0 +1,91 @@
+@use "styles/colors";
+@use "styles/sizes";
+
+$formVerticalMargin: 5em !default;
+$inputVerticalMargin: 2rem !default;
+
+@mixin inputs {
+  form {
+    margin: $formVerticalMargin 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 300;
+  }
+
+  .formItem {
+    margin: $inputVerticalMargin 0;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.8rem;
+  }
+
+  input,
+  textarea {
+    box-sizing: border-box;
+    font-size: 1.2em;
+    padding: 0.8rem;
+    border: 1px solid #999;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  input[readonly],
+  textarea[readonly] {
+    background-color: #eee;
+    color: #999;
+  }
+
+  input:hover,
+  textarea:hover {
+    border-color: colors.$theme-secondary;
+  }
+
+  input:focus,
+  textarea:focus,
+  input:active,
+  textarea:active {
+    border-color: colors.$theme-secondary;
+    outline: 1px solid colors.$theme-secondary;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  button {
+    font-size: 1em;
+    font-weight: 600;
+    padding: 0.8rem 1.2rem;
+    min-width: 6rem;
+    background-color: transparent;
+    border: 1px solid colors.$theme-primary;
+    border-radius: 0.6rem;
+    color: colors.$theme-primary;
+    cursor: pointer;
+  }
+
+  button:hover {
+    outline: 1px solid colors.$theme-primary;
+  }
+
+  @include sizes.tablet {
+    button {
+      font-size: 0.8em;
+    }
+  }
+
+  @include sizes.phone {
+    button {
+      width: 100%;
+      display: block;
+    }
+  }
+}

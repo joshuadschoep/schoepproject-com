@@ -8,13 +8,25 @@ $smallTitleSize: 30px;
 $logoMargin: styles.$imageMargin;
 
 .header {
+  position: relative;
   @include styles.columns(2);
   color: styles.$header-textColor;
-  background: linear-gradient(
-    to bottom right,
-    styles.$header-topLeftBackground,
-    styles.$header-bottomRightBackground
-  );
+  background: fixed
+    linear-gradient(
+      to bottom right,
+      styles.$header-topLeftBackground,
+      styles.$header-bottomRightBackground
+    );
+
+  @include styles.phone {
+    &::after {
+      background: none;
+    }
+  }
+
+  article {
+    z-index: 1;
+  }
 
   .titleCard {
     @include styles.vertical-tablet {

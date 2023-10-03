@@ -1,7 +1,7 @@
 @use "styles";
 
 .skills {
-  background: linear-gradient(to top left, #222, #666);
+  background: fixed linear-gradient(to top left, #222, #666);
   color: styles.$header-textColor;
   padding: styles.$standardVerticalMargin styles.$outsideMargin;
 

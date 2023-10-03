@@ -6,15 +6,20 @@ export const DESCRIPTORS = [
 
 export const QUICK_LINKS = [
   {
-    href: "https://woodridgesoftware.com/",
-    label: "Woodridge Website",
+    href: "/contact",
+    label: "Contact Me",
+    link: true,
   },
   {
     href: "https://www.linkedin.com/in/joshua-schoep/",
     label: "LinkedIn",
+    link: false,
+    newPage: true,
   },
   {
     href: "https://assets.schoepproject.com/joshua-schoep-resume.pdf",
     label: "Resume (PDF)",
+    link: false,
+    newPage: true,
   },
 ];

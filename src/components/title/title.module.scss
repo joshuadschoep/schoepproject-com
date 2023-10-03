@@ -30,11 +30,7 @@ $logoMargin: styles.$imageMargin;
     h1 {
       @include sizes($titleSize);
 
-      @include styles.horizontal-tablet {
-        @include sizes($tabletTitleSize);
-      }
-
-      @include styles.vertical-tablet {
+      @include styles.tablet {
         @include sizes($tabletTitleSize);
       }
 

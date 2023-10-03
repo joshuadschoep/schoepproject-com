@@ -3,6 +3,7 @@ import copy from "assets/png/copy.png";
 import copyFocus from "assets/png/copy-focus.png";
 import styles from "./email.module.scss";
 import { Tooltip } from "react-tooltip";
+import { COPY_BLACK_URL, COPY_HIGHLIGHT_URL } from "./const";
 
 const ANCHOR = "copied-anchor-element";
 const TOOLTIP_TIMER = 3000;
@@ -21,6 +22,8 @@ export const Email = () => {
     }, TOOLTIP_TIMER);
   }, [focusRef]);
 
+  const url = focus ? COPY_HIGHLIGHT_URL : COPY_BLACK_URL;
+
   return (
     <section className={styles.email}>
       <h3>Or grab my email, if you prefer</h3>
@@ -29,7 +32,7 @@ export const Email = () => {
         <img
           className={styles.copyButton}
           alt=""
-          src={focus ? copyFocus : copy}
+          src={url}
           onMouseEnter={() => setFocus(true)}
           onMouseLeave={() => setFocus(false)}
           onClick={onClick}
@@ -51,6 +54,8 @@ export const Email = () => {
         content="Copied!"
         isOpen={tooltip}
       />
+
+      <img hidden alt="" src={COPY_HIGHLIGHT_URL} rel="prefetch" />
     </section>
   );
 };

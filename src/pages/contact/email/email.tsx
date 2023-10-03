@@ -1,6 +1,4 @@
 import { useCallback, useRef, useState } from "react";
-import copy from "assets/png/copy.png";
-import copyFocus from "assets/png/copy-focus.png";
 import styles from "./email.module.scss";
 import { Tooltip } from "react-tooltip";
 import { COPY_BLACK_URL, COPY_HIGHLIGHT_URL } from "./const";
@@ -54,8 +52,6 @@ export const Email = () => {
         content="Copied!"
         isOpen={tooltip}
       />
-
-      <img hidden alt="" src={COPY_HIGHLIGHT_URL} rel="prefetch" />
     </section>
   );
 };

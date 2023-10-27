@@ -48,6 +48,7 @@
     "lint:check": "eslint --max-warnings=0",
     "prettify": "prettier \"./src/**/*.{js,jsx,mjs,ts,tsx,css,scss,sass}\" --write",
     "prettify:check": "prettier \"./src/**/*.{js,jsx,mjs,ts,tsx,css,scss,sass}\" --check",
+    "types:check": "tsc",
     "format": "prettier . --write",
     "analyze": "webpack --config webpack.prod.js --analyze"
   }

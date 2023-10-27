@@ -1,5 +1,5 @@
-import { Footer, Header } from "components";
-import styles from "./notfound.module.scss";
+import { Footer, Header } from 'components';
+import styles from './notfound.module.scss';
 
 export const NotFound = () => {
   return (

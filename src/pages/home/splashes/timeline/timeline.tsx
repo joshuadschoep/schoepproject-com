@@ -1,7 +1,7 @@
-import { TimelineItem } from "./timeline-item";
-import styles from "./timeline.module.scss";
-import { LABEL, TIMELINE_ITEMS } from "./const";
-import { VerticalBar } from "./vertical-bar";
+import { TimelineItem } from './timeline-item';
+import styles from './timeline.module.scss';
+import { LABEL, TIMELINE_ITEMS } from './const';
+import { VerticalBar } from './vertical-bar';
 
 export const Timeline = () => {
   return (

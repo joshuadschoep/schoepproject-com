@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const FourSlicesIcon = () => {
   return (
@@ -19,7 +19,7 @@ export const FourSlicesIcon = () => {
         <path
           fill="currentColor"
           d="M 3.5864513,4.8960719 C 5.4488462,6.7584668 1.4684323,7.4404105 0.5256806,7.9568426 0.955962,6.9119508 1.7406243,3.0502448 3.5864513,4.8960719 Z"
-        />{" "}
+        />{' '}
       </g>
     </svg>
   );

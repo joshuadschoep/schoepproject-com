@@ -1,5 +1,5 @@
-import { Project } from "./types";
-import styles from "./project-item.module.scss";
+import { Project } from './types';
+import styles from './project-item.module.scss';
 
 export type ProjectItemProps = Project;
 

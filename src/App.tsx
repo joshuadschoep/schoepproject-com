@@ -1,8 +1,8 @@
-import "./App.scss";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { Home, Skills, Projects, NotFound, Contact } from "pages";
-import { Footer, Header } from "components";
-import { Scroller } from "components/scroller";
+import './App.scss';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Home, Skills, Projects, NotFound, Contact } from 'pages';
+import { Footer, Header } from 'components';
+import { Scroller } from 'components/scroller';
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import styles from "./bouncing-dots.module.scss";
+import styles from './bouncing-dots.module.scss';
 
 export const BouncingDots = () => {
   return (

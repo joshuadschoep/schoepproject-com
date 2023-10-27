@@ -1,6 +1,6 @@
-@use "styles/colors";
-@use "styles/splashes";
-@use "styles/text" with (
+@use 'styles/colors';
+@use 'styles/splashes';
+@use 'styles/text' with (
   $linkTextColor: colors.$theme-secondary,
   $linkUnderlinePaddingOffset: 0.5rem
 );

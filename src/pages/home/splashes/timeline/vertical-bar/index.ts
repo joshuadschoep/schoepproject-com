@@ -1,2 +1,2 @@
-export { VerticalBar } from "./vertical-bar";
-export type { VerticalBarProps } from "./vertical-bar";
+export { VerticalBar } from './vertical-bar';
+export type { VerticalBarProps } from './vertical-bar';

@@ -30,9 +30,9 @@ jobs:
         name: Download Build
         with:
           name: build
-          path: build
+          path: dist
       - run: bash ../.github/scripts/uploads3.sh
         name: Upload To S3
-        working-directory: build
+        working-directory: dist
       - run: bash ./.github/scripts/invalidate.sh
         name: Invalidate Cache

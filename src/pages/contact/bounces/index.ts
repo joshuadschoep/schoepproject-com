@@ -1,1 +1,1 @@
-export { BouncingDots } from "./bouncing-dots";
+export { BouncingDots } from './bouncing-dots';

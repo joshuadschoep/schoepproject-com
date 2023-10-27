@@ -1,7 +1,7 @@
-import styles from "./hero.module.scss";
-import { LINKS } from "./const";
-import { Link } from "react-router-dom";
-import { Title } from "components";
+import styles from './hero.module.scss';
+import { LINKS } from './const';
+import { Link } from 'react-router-dom';
+import { Title } from 'components';
 
 export const Hero = () => {
   return (
@@ -17,14 +17,14 @@ export const Hero = () => {
               <li>
                 {link.link ? (
                   <Link to={link.href} className={styles.descriptor}>
-                    {link.label}{" "}
+                    {link.label}{' '}
                   </Link>
                 ) : (
                   <a
                     href={link.href}
                     className={styles.descriptor}
                     rel="noreferrer"
-                    target={link.newPage ? "_blank" : ""}
+                    target={link.newPage ? '_blank' : ''}
                   >
                     {link.label}
                   </a>

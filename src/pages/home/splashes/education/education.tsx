@@ -1,5 +1,5 @@
-import { EDUCATION_NOTES, END_DATE, START_DATE } from "./const";
-import styles from "./education.module.scss";
+import { EDUCATION_NOTES, END_DATE, START_DATE } from './const';
+import styles from './education.module.scss';
 
 export const Education = () => {
   return (

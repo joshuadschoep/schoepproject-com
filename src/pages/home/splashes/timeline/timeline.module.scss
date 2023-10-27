@@ -1,4 +1,4 @@
-@use "styles";
+@use 'styles';
 
 @mixin column-ratios($first, $last) {
   > :first-child {

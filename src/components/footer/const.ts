@@ -1,24 +1,24 @@
 export const DESCRIPTORS = [
-  "Joshua Schoep 2023",
-  "Built with React 18",
-  "Powered by AWS",
+  'Joshua Schoep 2023',
+  'Built with React 18',
+  'Powered by AWS',
 ];
 
 export const QUICK_LINKS = [
   {
-    href: "/contact",
-    label: "Contact Me",
+    href: '/contact',
+    label: 'Contact Me',
     link: true,
   },
   {
-    href: "https://www.linkedin.com/in/joshua-schoep/",
-    label: "LinkedIn",
+    href: 'https://www.linkedin.com/in/joshua-schoep/',
+    label: 'LinkedIn',
     link: false,
     newPage: true,
   },
   {
-    href: "https://assets.schoepproject.com/joshua-schoep-resume.pdf",
-    label: "Resume (PDF)",
+    href: 'https://assets.schoepproject.com/joshua-schoep-resume.pdf',
+    label: 'Resume (PDF)',
     link: false,
     newPage: true,
   },

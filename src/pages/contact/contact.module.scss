@@ -1,4 +1,4 @@
-@use "styles";
+@use 'styles';
 
 @mixin attached-form {
   .formItem {
@@ -74,7 +74,7 @@
     @include styles.desktop {
       @include attached-form;
 
-      button[type="submit"] {
+      button[type='submit'] {
         margin-top: 1em;
         float: right;
       }
@@ -83,7 +83,7 @@
     @include styles.tablet {
       @include attached-form;
 
-      button[type="submit"] {
+      button[type='submit'] {
         margin-top: 1em;
         float: right;
       }
@@ -98,18 +98,18 @@
       }
     }
 
-    button[type="submit"].waiting:hover,
-    button[type="submit"].success:hover {
+    button[type='submit'].waiting:hover,
+    button[type='submit'].success:hover {
       outline: none;
       cursor: auto;
     }
 
-    button[type="submit"]:not(.waiting):not(.success) {
+    button[type='submit']:not(.waiting):not(.success) {
       background-color: styles.$theme-primary;
       color: white;
     }
 
-    button[type="submit"].success {
+    button[type='submit'].success {
       color: #11bb44;
       border-color: #11bb44;
 

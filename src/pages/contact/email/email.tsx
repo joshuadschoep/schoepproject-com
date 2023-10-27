@@ -1,9 +1,9 @@
-import { useCallback, useRef, useState } from "react";
-import styles from "./email.module.scss";
-import { Tooltip } from "react-tooltip";
-import { COPY_BLACK_URL, COPY_HIGHLIGHT_URL } from "./const";
+import { useCallback, useRef, useState } from 'react';
+import styles from './email.module.scss';
+import { Tooltip } from 'react-tooltip';
+import { COPY_BLACK_URL, COPY_HIGHLIGHT_URL } from './const';
 
-const ANCHOR = "copied-anchor-element";
+const ANCHOR = 'copied-anchor-element';
 const TOOLTIP_TIMER = 3000;
 
 export const Email = () => {
@@ -12,7 +12,7 @@ export const Email = () => {
   const focusRef = useRef<HTMLInputElement>(null);
 
   const onClick = useCallback(() => {
-    navigator.clipboard.writeText("joshua@schoepproject.com");
+    navigator.clipboard.writeText('joshua@schoepproject.com');
     showTooltip(true);
     setTimeout(() => {
       showTooltip(false);

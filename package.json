@@ -45,6 +45,7 @@
     "start": "webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint . --fix --max-warnings=0",
+    "lint:check": "eslint --max-warnings=0",
     "format": "prettier . --write",
     "analyze": "webpack --config webpack.prod.js --analyze"
   }

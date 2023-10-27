@@ -6,4 +6,4 @@ jobs:
   test:
     uses: ./.github/workflows/jest.yml
   build:
-    uses: ./.github/workflows/build.yml
+    uses: ./.github/workflows/webpack.yml

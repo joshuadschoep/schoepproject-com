@@ -1,8 +1,8 @@
-name: Deployment
+name: Dev Deployment
 on:
   push:
     branches:
-      - main
+      - dev
 jobs:
   build:
     uses: ./.github/workflows/webpack.yml
@@ -12,8 +12,8 @@ jobs:
     env:
       INDEX_FILE: ${{ vars.INDEX_FILE }}
       STATIC_FOLDER: ${{ vars.STATIC_FOLDER }}
-      AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-      AWS_CLOUDFRONT_DIST: ${{ secrets.AWS_CLOUDFRONT_DIST }}
+      AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET_DEV }}
+      AWS_CLOUDFRONT_DIST: ${{ secrets.AWS_CLOUDFRONT_DIST_DEV }}
     permissions:
       id-token: write
       contents: read
@@ -24,7 +24,7 @@ jobs:
         name: Configure Deployment Credentials
         with:
           role-to-assume: ${{ secrets.IAMROLE_GITHUB }}
-          role-session-name: Github-Actions-Deploy-Prod
+          role-session-name: Github-Actions-Deploy-Dev
           aws-region: ${{ secrets.AWS_REGION }}
       - uses: actions/download-artifact@v3
         name: Download Build

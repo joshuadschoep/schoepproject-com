@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import styles from "./input.module.scss";
-import { Tooltip } from "react-tooltip";
-import { useLayoutEffect, useState } from "react";
-import { UseFormRegister } from "react-hook-form";
+import classNames from 'classnames';
+import styles from './input.module.scss';
+import { Tooltip } from 'react-tooltip';
+import { useLayoutEffect, useState } from 'react';
+import { UseFormRegister } from 'react-hook-form';
 
 export interface InputProps {
   label?: string;
@@ -19,7 +19,7 @@ export interface InputProps {
   register: UseFormRegister<any>;
 }
 
-const ANCHOR = "error-anchor-element";
+const ANCHOR = 'error-anchor-element';
 
 export const Input = ({
   value,
@@ -39,7 +39,7 @@ export const Input = ({
   const isAttached = window.innerWidth > 904;
 
   useLayoutEffect(() => {
-    setOpenTooltip(error !== "");
+    setOpenTooltip(error !== '');
     // if (error !== "") {
     //   setTimeout(() => setOpenTooltip(false), 90000);
     // }

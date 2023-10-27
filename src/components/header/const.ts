@@ -1,22 +1,22 @@
 export const LINKS = [
   {
-    label: "Home",
-    href: "/",
+    label: 'Home',
+    href: '/',
     link: true,
   },
   {
-    label: "Skills",
-    href: "/skills",
+    label: 'Skills',
+    href: '/skills',
     link: true,
   },
   {
-    label: "Projects",
-    href: "/projects",
+    label: 'Projects',
+    href: '/projects',
     link: true,
   },
   {
-    label: "Contact",
-    href: "/contact",
+    label: 'Contact',
+    href: '/contact',
     link: true,
   },
 ];

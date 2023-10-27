@@ -9,77 +9,47 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.47.0",
-    "react-router-dom": "^6.15.0",
+    "react-router-dom": "^6.17.0",
     "react-tooltip": "^5.21.5",
-    "sass": "^1.55.0",
-    "web-vitals": "^2.1.4",
     "yup": "^1.3.2"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.2",
-    "@types/react": "^18.0.23",
-    "@types/react-dom": "^18.0.7",
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/preset-react": "^7.22.15",
+    "@types/node": "^20.8.9",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "prettier": "^3.0.2",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.8.4"
+    "eslint-plugin-react": "^7.33.2",
+    "html-webpack-plugin": "^5.5.3",
+    "merge": "^2.1.1",
+    "mini-css-extract-plugin": "^2.7.6",
+    "prettier": "^3.0.3",
+    "sass": "^1.55.0",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.2.2",
+    "typescript-plugin-css-modules": "^5.0.2",
+    "webpack": "^5.89.0",
+    "webpack-bundle-analyzer": "^4.9.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build:dev": "react-scripts build --env=dev",
-    "build:test": "react-scripts build --env=test",
-    "build:prod": "react-scripts build --env=prod",
-    "test": "react-scripts test",
-    "test:ci": "react-scripts test --env=jest-environment-jsdom --watch=false",
-    "lint:fix": "npm run lint -- --fix",
-    "lint:check": "eslint --max-warnings=0 \"./src/**/*.{js,jsx,mjs,ts,tsx}\"",
-    "prettify:check": "prettier \"./src/**/*.{js,jsx,mjs,ts,tsx,css}\" --check",
-    "prettify:fix": "prettier \"./src/**/*.{js,jsx,mjs,ts,tsx,css,scss,sass}\" --write",
-    "types:check": "tsc"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "plugin:prettier/recommended"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "prettier": {
-    "$schema": "http://json.schemastore.org/prettierrc",
-    "arrowParens": "always",
-    "bracketSpacing": true,
-    "cursorOffset": -1,
-    "embeddedLanguageFormatting": "auto",
-    "endOfLine": "lf",
-    "htmlWhitespaceSensitivity": "css",
-    "insertPragma": false,
-    "jsxSingleQuote": false,
-    "printWidth": 80,
-    "proseWrap": "preserve",
-    "quoteProps": "consistent",
-    "requirePragma": false,
-    "semi": true,
-    "singleQuote": false,
-    "tabWidth": 2,
-    "trailingComma": "es5",
-    "useTabs": false
+    "start": "webpack serve --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "lint": "eslint . --fix --max-warnings=0",
+    "lint:check": "eslint --max-warnings=0",
+    "prettify": "prettier \"./src/**/*.{js,jsx,mjs,ts,tsx,css,scss,sass}\" --write",
+    "prettify:check": "prettier \"./src/**/*.{js,jsx,mjs,ts,tsx,css,scss,sass}\" --check",
+    "types:check": "tsc",
+    "format": "prettier . --write",
+    "analyze": "webpack --config webpack.prod.js --analyze"
   }
 }

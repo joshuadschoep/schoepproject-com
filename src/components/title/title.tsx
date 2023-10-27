@@ -1,7 +1,7 @@
-import { OpenBoxIcon } from "assets";
-import { SUBTITLE, TITLE } from "./const";
-import styles from "./title.module.scss";
-import classNames from "classnames";
+import { OpenBoxIcon } from 'assets';
+import { SUBTITLE, TITLE } from './const';
+import styles from './title.module.scss';
+import classNames from 'classnames';
 
 export interface TitleProps {
   big?: boolean;

@@ -1,5 +1,5 @@
-import styles from "./skills.module.scss";
-import { LABEL, SKILLS } from "./const";
+import styles from './skills.module.scss';
+import { LABEL, SKILLS } from './const';
 
 export const Skills = () => {
   return (

@@ -1,15 +1,15 @@
-import { useCallback, useMemo, useState } from "react";
-import styles from "./contact.module.scss";
-import { Email } from "./email";
-import { Input } from "./input";
-import { Schema, SubmitState } from "./const";
-import axios from "axios";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { BouncingDots } from "./bounces";
+import { useCallback, useMemo, useState } from 'react';
+import styles from './contact.module.scss';
+import { Email } from './email';
+import { Input } from './input';
+import { Schema, SubmitState } from './const';
+import axios from 'axios';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { BouncingDots } from './bounces';
 
 export const Contact = () => {
-  const [submitState, setSubmitState] = useState<SubmitState>("unsubmitted");
+  const [submitState, setSubmitState] = useState<SubmitState>('unsubmitted');
 
   const {
     register,
@@ -18,32 +18,32 @@ export const Contact = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(Schema),
-    mode: "onSubmit",
-    reValidateMode: "onChange",
+    mode: 'onSubmit',
+    reValidateMode: 'onChange',
   });
 
   const onSubmit = useCallback(() => {
-    setSubmitState("waiting");
+    setSubmitState('waiting');
 
     const httpBody = JSON.stringify({
-      senderName: watch("name"),
-      senderEmail: watch("returnAddress"),
-      subject: watch("subject"),
-      body: watch("body"),
+      senderName: watch('name'),
+      senderEmail: watch('returnAddress'),
+      subject: watch('subject'),
+      body: watch('body'),
     });
 
     axios
-      .post("https://api.schoepproject.com/contact-me", httpBody)
-      .then(() => setSubmitState("success"));
+      .post('https://api.schoepproject.com/contact-me', httpBody)
+      .then(() => setSubmitState('success'));
   }, [watch]);
 
   const [buttonContent, buttonStyles] = useMemo(() => {
     switch (submitState) {
-      case "unsubmitted":
-        return [<p>Send</p>, ""];
-      case "waiting":
+      case 'unsubmitted':
+        return [<p>Send</p>, ''];
+      case 'waiting':
         return [<BouncingDots />, styles.waiting];
-      case "success":
+      case 'success':
         return [<p>Sent</p>, styles.success];
     }
   }, [submitState]);
@@ -96,7 +96,7 @@ export const Contact = () => {
         />
         <button
           className={buttonStyles}
-          disabled={submitState !== "unsubmitted"}
+          disabled={submitState !== 'unsubmitted'}
           type="submit"
         >
           {buttonContent}

@@ -1,6 +1,6 @@
-import styles from "./project.module.scss";
-import { PROJECTS } from "./const";
-import { ProjectItem } from "./project-item";
+import styles from './project.module.scss';
+import { PROJECTS } from './const';
+import { ProjectItem } from './project-item';
 
 export const Projects = () => {
   return (

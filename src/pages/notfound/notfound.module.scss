@@ -1,5 +1,5 @@
-@use "styles/colors";
-@use "styles/text" with (
+@use 'styles/colors';
+@use 'styles/text' with (
   $linkTextColor: colors.$theme-secondary,
   $linkUnderlinePaddingOffset: 2px
 );
@@ -23,12 +23,12 @@
     }
 
     &::before {
-      content: "";
+      content: '';
       flex-grow: 1;
     }
 
     &::after {
-      content: "";
+      content: '';
       flex-grow: 2;
     }
   }
@@ -55,7 +55,7 @@
 
   .left::after {
     position: absolute;
-    content: "";
+    content: '';
     width: 2px;
     top: 0;
     bottom: 0;

@@ -1,5 +1,5 @@
-import { OpenBoxIcon } from "assets";
-import styles from "./vertical-bar.module.scss";
+import { OpenBoxIcon } from 'assets';
+import styles from './vertical-bar.module.scss';
 
 export interface VerticalBarProps {
   first: boolean;

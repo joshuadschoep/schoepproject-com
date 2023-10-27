@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { OpenBoxIcon } from "../../assets/svg/openBox";
-import { DESCRIPTORS, QUICK_LINKS } from "./const";
-import styles from "./footer.module.scss";
+import { Link } from 'react-router-dom';
+import { OpenBoxIcon } from '../../assets/svg/openBox';
+import { DESCRIPTORS, QUICK_LINKS } from './const';
+import styles from './footer.module.scss';
 
 export const Footer = () => {
   return (
@@ -17,7 +17,7 @@ export const Footer = () => {
               ) : (
                 <a
                   href={link.href}
-                  target={link.newPage ? "_blank" : ""}
+                  target={link.newPage ? '_blank' : ''}
                   rel="noreferrer"
                 >
                   {link.label}

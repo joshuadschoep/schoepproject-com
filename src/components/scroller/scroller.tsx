@@ -1,5 +1,5 @@
-import { PropsWithChildren, useLayoutEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { PropsWithChildren, useLayoutEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export const Scroller = ({ children }: PropsWithChildren) => {
   const { pathname } = useLocation();

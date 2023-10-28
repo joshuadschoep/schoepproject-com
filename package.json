@@ -21,6 +21,7 @@
     "@types/node": "^20.8.9",
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
+    "@types/webpack": "^5.28.4",
     "babel-loader": "^9.1.3",
     "css-loader": "^6.8.1",
     "eslint": "^8.52.0",
@@ -34,6 +35,7 @@
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
     "ts-loader": "^9.5.0",
+    "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
     "typescript-plugin-css-modules": "^5.0.2",
     "webpack": "^5.89.0",
@@ -42,14 +44,14 @@
     "webpack-dev-server": "^4.15.1"
   },
   "scripts": {
-    "start": "webpack serve --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "start": "webpack serve --open --config webpack.dev.ts",
+    "build": "webpack --config webpack.prod.ts",
     "lint": "eslint . --fix --max-warnings=0",
     "lint:check": "eslint --max-warnings=0",
     "prettify": "prettier \"./src/**/*.{js,jsx,mjs,ts,tsx,css,scss,sass}\" --write",
     "prettify:check": "prettier \"./src/**/*.{js,jsx,mjs,ts,tsx,css,scss,sass}\" --check",
     "types:check": "tsc",
     "format": "prettier . --write",
-    "analyze": "webpack --config webpack.prod.js --analyze"
+    "analyze": "webpack --config webpack.prod.ts --analyze"
   }
 }

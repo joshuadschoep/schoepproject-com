@@ -1,10 +1,11 @@
-const { mergeWithRules } = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const common = require('./webpack.common');
-const path = require('path');
+import { Configuration } from 'webpack';
+import { mergeWithRules } from 'webpack-merge';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import path from 'path';
+import common from './webpack.common';
 
-module.exports = mergeWithRules({
+const config: Configuration = mergeWithRules({
   module: {
     rules: {
       test: 'match',
@@ -41,3 +42,5 @@ module.exports = mergeWithRules({
     }),
   ],
 });
+
+export default config;

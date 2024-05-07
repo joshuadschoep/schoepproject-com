@@ -3,10 +3,6 @@
 );
 
 .education {
-  //   * {
-  //     outline: 1px solid red;
-  //   }
-
   @include styles.columns(2);
   color: #333;
 

@@ -11,7 +11,7 @@ $logoMargin: styles.$imageMargin;
   position: relative;
   @include styles.columns(2);
   color: styles.$header-textColor;
-  background: fixed
+  background: 
     linear-gradient(
       to bottom right,
       styles.$header-topLeftBackground,

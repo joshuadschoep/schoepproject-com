@@ -99,12 +99,13 @@
     }
 
     button[type='submit'].waiting:hover,
-    button[type='submit'].success:hover {
+    button[type='submit'].success:hover,
+    button[type='submit'].failure:hover {
       outline: none;
       cursor: auto;
     }
 
-    button[type='submit']:not(.waiting):not(.success) {
+    button[type='submit']:not(.waiting):not(.success):not(.failure) {
       background-color: #245b91;
       color: white;
     }
@@ -112,6 +113,15 @@
     button[type='submit'].success {
       color: #245b91;
       border-color: #245b91;
+
+      p {
+        animation: fadeIn 1.2s forwards;
+      }
+    }
+
+    button[type='submit'].failure {
+      color: #912424;
+      border-color: #912424;
 
       p {
         animation: fadeIn 1.2s forwards;

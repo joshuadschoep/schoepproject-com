@@ -9,4 +9,4 @@ export const Schema = object({
   body: string().required('Message body is required'),
 });
 
-export type SubmitState = 'unsubmitted' | 'waiting' | 'success';
+export type SubmitState = 'unsubmitted' | 'waiting' | 'success' | 'failure';

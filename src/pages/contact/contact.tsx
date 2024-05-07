@@ -33,9 +33,12 @@ export const Contact = () => {
     });
 
     axios
-      .post('https://api.schoepproject.com/contact-me', httpBody)
-      .then(() => setSubmitState('success'));
+      .post('https://api.schoepproject.com/www/contact-me', httpBody)
+      .then(() => setSubmitState('success'))
+      .catch(() => setSubmitState('failure'));
   }, [watch]);
+
+  const onFormChange = useCallback(() => setSubmitState('unsubmitted'), []);
 
   const [buttonContent, buttonStyles] = useMemo(() => {
     switch (submitState) {
@@ -45,13 +48,15 @@ export const Contact = () => {
         return [<BouncingDots />, styles.waiting];
       case 'success':
         return [<p>Sent</p>, styles.success];
+      case 'failure':
+        return [<p>!</p>, styles.failure];
     }
   }, [submitState]);
 
   return (
     <article className={styles.contact}>
       <h2>Contact me</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} onChange={onFormChange}>
         <h3>Send me a message directly</h3>
         <Input
           className={styles.formItem}

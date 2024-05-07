@@ -12,8 +12,10 @@
   }
 
   color: #fff;
-  background: styles.$theme-primary;
-    
+  background: radial-gradient(circle at top right, #245b91, transparent 70vw),
+    radial-gradient(at top left, #249191, transparent 125vw),
+    radial-gradient(at bottom right, #24915b, transparent 95vw),
+    radial-gradient(circle at bottom left, #242491, transparent 60vw);
 
   > article {
     width: 100%;

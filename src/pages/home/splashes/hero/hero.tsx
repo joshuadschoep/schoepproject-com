@@ -24,7 +24,7 @@ export const Hero = () => {
                     href={link.href}
                     className={styles.descriptor}
                     rel="noreferrer"
-                    target={link.newPage ? '_blank' : ''}
+                    // target={link.newPage ? '_blank' : ''}
                   >
                     {link.label}
                   </a>

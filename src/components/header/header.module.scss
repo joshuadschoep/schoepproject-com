@@ -31,12 +31,10 @@ $logoMargin: styles.$imageMargin;
 
   padding: 3em;
   color: styles.$header-textColor;
-  background: 
-    linear-gradient(
-      to bottom right,
-      styles.$header-topLeftBackground,
-      styles.$header-bottomRightBackground
-    );
+  background: radial-gradient(circle at top right, #245b91, transparent 70vw),
+    radial-gradient(at top left, #249191, transparent 125vw),
+    radial-gradient(at bottom right, #24915b, transparent 95vw),
+    radial-gradient(circle at bottom left, #242491, transparent 60vw);
 
   display: flex;
   align-items: center;

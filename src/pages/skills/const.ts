@@ -12,7 +12,7 @@ export const SKILLS = [
       },
       {
         name: 'NodeJS',
-        sub: '2 years',
+        sub: '3 years',
       },
       {
         name: 'Python - Flask',
@@ -116,6 +116,10 @@ export const SKILLS = [
         sub: '3 years',
       },
       {
+        name: "Infrastructure as Code (IaC)",
+        sub: '2 years'
+      },
+      {
         name: 'Feature & Unit Testing',
         sub: '4 years',
       },
@@ -137,8 +141,8 @@ export const SKILLS = [
         sub: '4 years',
       },
       {
-        name: 'Kubernetes',
-        sub: '3 years',
+        name: 'AWS SAM and Cloudformation',
+        sub: '1 year'
       },
       {
         name: 'Amazon Web Services, general',
@@ -149,13 +153,13 @@ export const SKILLS = [
         sub: '3 years',
       },
       {
-        name: 'AWS EC2, ECS, LightSail for backend services',
-        sub: '3 years',
+        name: 'AWS Serverless and Lambda for backend services',
+        sub: '1 year'
       },
       {
-        name: 'AWS CloudFormation',
-        sub: '1 year',
-      },
+        name: 'AWS EC2, ECS, LightSail for backend services',
+        sub: '2 years',
+      }
     ],
   },
   {
@@ -173,6 +177,10 @@ export const SKILLS = [
         name: 'Client Relationships',
         sub: '2 years',
       },
+      {
+        name: 'Customer Service',
+        sub: '1 year'
+      }
     ],
   },
 ];

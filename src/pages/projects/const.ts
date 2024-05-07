@@ -43,24 +43,23 @@ export const PROJECTS = [
     group: 'Personal Projects',
     projects: [
       {
-        title: 'Resume Website',
+        title: 'Merch Alert',
         link: {
-          name: 'www.schoepproject.com',
-          href: '/',
+          name: 'www.merchalert.schoepproject.com',
+          href: 'https://www.merchalert.schoepproject.com',
         },
         description:
-          "This website began as an experiment for me, to learn how to host websites and web applications while working in cellular and defense. As I've learned more skills in web development, I have tried to implement those skills here. This website is built in React and hosted via AWS, with many small applications and projects shown below.",
+          "An app designed and being implemented by coworkers and me at Woodridge Software. An app to deliver push notifications on multiple Billboard artists' apparel and merchendise stores. I have been responsible for all infrastructure written in CloudFormation and SAM, as well as operations, deployments, CI/CD, and AWS security and infrastructure.",
         skills: [
-          'React',
-          'AWS S3 & CloudFront',
-          'AWS Route53',
-          'AWS LightSail',
-          'Web Hosting',
-          'IT & Maintenance',
+          'AWS SAM',
+          'AWS CloudFormation',
+          'AWS Best Practices',
+          'AWS Monitoring',
+          'AWS Security & Compliance',
         ],
       },
       {
-        title: 'Snowfall Chart',
+        title: 'Snowfall Charts',
         link: {
           name: 'snowfall.schoepproject.com',
           href: 'https://snowfall.schoepproject.com',
@@ -70,8 +69,25 @@ export const PROJECTS = [
         skills: [
           'Angular',
           'Python, BeautifulSoup',
+          'AWS S3 & CloudFront',
           'AWS Lambda',
           'AWS S3 & CloudFront',
+        ],
+      },
+      {
+        title: 'Resume Website',
+        link: {
+          name: 'www.schoepproject.com',
+          href: '/',
+        },
+        description:
+          "This website began as an experiment for me, to learn how to host websites and web applications while working in cellular and defense. As I've learned more skills in web development, I have tried to implement those skills here. This website is built in React and hosted via AWS, with many small applications and projects shown below.",
+        skills: [
+          'React',
+          'AWS SAM',
+          'AWS Route53',
+          'Web Hosting',
+          'IT & Maintenance',
         ],
       },
       {

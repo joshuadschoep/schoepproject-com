@@ -12,7 +12,7 @@ export const TIMELINE_ITEMS = [
       'Advised clients on Scrum practices including implementing efficient backlog grooming sessions, writing testable acceptance criteria, and adding time for tech-debt while maintaining sprint velocity.',
     ],
     startDate: 'August 2022',
-    endDate: 'Present',
+    endDate: 'March 2024',
   },
   {
     group: 'Woodridge Software',

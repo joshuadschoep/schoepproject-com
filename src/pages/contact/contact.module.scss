@@ -105,13 +105,13 @@
     }
 
     button[type='submit']:not(.waiting):not(.success) {
-      background-color: styles.$theme-primary;
+      background-color: #245b91;
       color: white;
     }
 
     button[type='submit'].success {
-      color: #11bb44;
-      border-color: #11bb44;
+      color: #245b91;
+      border-color: #245b91;
 
       p {
         animation: fadeIn 1.2s forwards;

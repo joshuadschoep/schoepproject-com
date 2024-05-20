@@ -25,12 +25,12 @@ export const Contact = () => {
   const onSubmit = useCallback(() => {
     setSubmitState('waiting');
 
-    const httpBody = {
+    const httpBody = JSON.stringify({
       senderName: watch('name'),
       senderEmail: watch('returnAddress'),
       subject: watch('subject'),
       body: watch('body'),
-    };
+    });
 
     axios
       .post('https://api.schoepproject.com/www/contact-me', httpBody)

@@ -32,14 +32,8 @@ export const Contact = () => {
       body: watch('body'),
     };
 
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
-
     axios
-      .post('https://api.schoepproject.com/www/contact-me', httpBody, config)
+      .post('https://api.schoepproject.com/www/contact-me', httpBody)
       .then(() => setSubmitState('success'))
       .catch(() => setSubmitState('failure'));
   }, [watch]);

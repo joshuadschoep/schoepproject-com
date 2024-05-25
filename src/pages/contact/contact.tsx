@@ -33,7 +33,7 @@ export const Contact = () => {
     };
 
     axios
-      .post('https://api.schoepproject.com/www/contact-me', httpBody)
+      .post('https://api.schoepproject.com/www/submit-form', httpBody)
       .then(() => setSubmitState('success'))
       .catch(() => setSubmitState('failure'));
   }, [watch]);

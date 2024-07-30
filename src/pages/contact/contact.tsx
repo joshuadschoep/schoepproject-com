@@ -25,15 +25,15 @@ export const Contact = () => {
   const onSubmit = useCallback(() => {
     setSubmitState('waiting');
 
-    const httpBody = JSON.stringify({
+    const httpBody = {
       senderName: watch('name'),
       senderEmail: watch('returnAddress'),
       subject: watch('subject'),
       body: watch('body'),
-    });
+    };
 
     axios
-      .post('https://api.schoepproject.com/www/contact-me', httpBody)
+      .post('https://api.schoepproject.com/www/submit-form', httpBody)
       .then(() => setSubmitState('success'))
       .catch(() => setSubmitState('failure'));
   }, [watch]);

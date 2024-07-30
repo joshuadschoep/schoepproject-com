@@ -2,7 +2,9 @@
 
 .skills {
   padding: styles.$standardVerticalMargin styles.$outsideMargin;
-  column-count: 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: stretch;
 
   ul {
     display: inline-block;
@@ -26,11 +28,11 @@
   }
 
   @include styles.vertical-tablet {
-    column-count: 2;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @include styles.phone {
-    column-count: 1;
+    grid-template-columns: 1fr;
     ul {
       display: block;
     }

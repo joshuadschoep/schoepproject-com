@@ -2,6 +2,18 @@ export const LABEL = 'Experience';
 
 export const TIMELINE_ITEMS = [
   {
+    group: 'SpotSurfer',
+    title: 'Frontend Contractor',
+    location: 'Denver, Colorado',
+    tasks: [
+      'Revamped SpotSurfer checkout and reservations pages to be modern, clean, and mobile friendly in 2 months.',
+      'Built from-scratch dashboards for owners and parkers using SpotSurfer in React 18. Used data visualization experience to improve at-a-glance views and customer experience.',
+      'Provided design and UX expertise, expanded internal testing initiatives, and offered guidance on REST princpals and API design.',
+    ],
+    startDate: 'June 2024',
+    endDate: 'Present',
+  },
+  {
     group: 'Woodridge Software',
     title: 'Senior Developer',
     location: 'Denver, Colorado',

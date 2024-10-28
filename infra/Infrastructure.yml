@@ -1,0 +1,95 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Cloud resources required to deploy schoepproject.com and subroutes
+Mappings:
+  Domains:
+    Prod:
+      Name: www.schoepproject.com
+      FullyResolvedName: www.schoepproject.com.
+      S3Name: www-schoepproject-com-145724753995
+    Redirect:
+      Name: schoepproject.com
+      FullyResolvedName: schoepproject.com.
+      S3Name: redirect-schoepproject-com-145724753995
+  DnsAliasTargets:
+    CloudFront:
+      HostedZone: Z2FDTNDATAQYW2
+  CachingPolicies:
+    CachingOptimized:
+      Id: 658327ea-f89d-4fab-a63d-7e88639e58f6
+  CDNPriceClasses:
+    USAndEurope:
+      Id: PriceClass_100
+  CdnSslConfig:
+    Tls1.2SniOnly:
+      SslVersion: TLSv1.2_2021
+      SupportMethod: sni-only
+Resources:
+  StaticBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketName: !FindInMap [Domains, Prod, S3Name]
+  DnsRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      Name: !FindInMap [Domains, Prod, FullyResolvedName]
+      Type: A
+      HostedZoneId: !ImportValue SchoepprojectHostedZoneID
+      AliasTarget:
+        DNSName: !GetAtt CDN.DomainName
+        HostedZoneId: !FindInMap [DnsAliasTargets, CloudFront, HostedZone]
+  Certificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !FindInMap [Domains, Prod, Name]
+      DomainValidationOptions:
+        - DomainName: !FindInMap [Domains, Prod, FullyResolvedName]
+      ValidationMethod: DNS
+  CDN:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Origins:
+          - DomainName: !Ref StaticBucket
+            Id: S3BucketOrigin
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+            OriginAccessControlId: !GetAtt CDNAccess.Id
+        DefaultCacheBehavior:
+          CachePolicyId: !FindInMap [CachingPolicies, CachingOptimized, Id]
+          Compress: true
+          # Speed up caching while developing
+          DefaultTTL: 60
+          TargetOriginId: S3OriginConfig
+          ViewerProtocolPolicy: 'redirect-to-https'
+        DefaultRootObject: index.html
+        HttpVersion: http1.1
+        PriceClass: !FindInMap [CDNPriceClasses, USAndEurope, Id]
+        ViewerCertificate:
+          AcmCertificateArn: !Ref Certificate
+          MinimumProtocolVersion:
+            !FindInMap [CdnSslConfig, Tls1.2SniOnly, SslVersion]
+          SslSupportMethod:
+            !FindInMap [CdnSslConfig, Tls1.2SniOnly, SupportMethod]
+  CDNAccess:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Ref StaticBucket
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref StaticBucket
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          Effect: Allow
+          Principal:
+            Service: cloudfront.amazonaws.com
+          Action: s3:GetObject
+          Resource: !Sub 'arn:${AWS::Partition}:s3:::${StaticBucket}/*'

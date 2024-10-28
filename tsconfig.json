@@ -13,14 +13,13 @@
     "jsx": "react-jsx",
     "plugins": [
       {
-        "name": "typescript-plugin-css-modules"
-      }
-    ]
+        "name": "typescript-plugin-css-modules",
+      },
+    ],
   },
-  "include": ["src"],
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
-    }
-  }
+      "module": "CommonJS",
+    },
+  },
 }

@@ -10,8 +10,6 @@ jobs:
     permissions:
       id-token: write
     runs-on: ubuntu-latest
-    outputs:
-      S3_URL: ${{ steps.upload.outputs.S3_URL }}
     steps:
       - uses: actions/checkout@v4
       - uses: aws-actions/configure-aws-credentials@v4
@@ -40,7 +38,7 @@ jobs:
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           STACK_NAME: ${{ secrets.STACK_NAME }}
-          TEMPLATE_URL: ${{ needs.upload.outputs.S3_URL }}/Infrastructure.yml
+          TEMPLATE_URL: https://${{ secrets.AWS_INFRA_BUCKET_NAME }}.s3.amazonaws.com/${{ secrets.AWS_TEMPLATE_DIRECTORY }}/Infrastructure.yml
           CHANGESET_NAME: ${{ secrets.STACK_NAME}}-CI-Changes-${{ github.sha }}
           CHANGESET_TAGS: Key="schoepproject:group",Value="applications" Key="schoepproject:subgroup",Value="com" Key="schoepproject:layer",Value="application"
           CHANGESET_ROLE: ${{ secrets.AWS_CHANGESET_ROLE }}

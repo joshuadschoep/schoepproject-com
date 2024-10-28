@@ -44,6 +44,7 @@ Resources:
     Properties:
       DomainName: !FindInMap [Domains, Prod, Name]
       DomainValidationOptions:
+        - HostedZoneId: !ImportValue SchoepprojectHostedZoneID
         - DomainName: !FindInMap [Domains, Prod, Name]
       ValidationMethod: DNS
   CDN:

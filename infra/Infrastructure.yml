@@ -44,7 +44,7 @@ Resources:
     Properties:
       DomainName: !FindInMap [Domains, Prod, Name]
       DomainValidationOptions:
-        - DomainName: !FindInMap [Domains, Prod, FullyResolvedName]
+        - DomainName: !FindInMap [Domains, Prod, Name]
       ValidationMethod: DNS
   CDN:
     Type: AWS::CloudFront::Distribution

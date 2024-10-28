@@ -9,6 +9,8 @@ on:
 
 jobs:
   upload:
+    permissions:
+      id-token: write
     runs-on: ubuntu-latest
     outputs:
       S3_URL: ${{ steps.upload.outputs.S3_URL }}
@@ -26,6 +28,8 @@ jobs:
           AWS_S3_DIRECTORY: ${{ inputs.AWS_TEMPLATE_DIRECTORY }}
   changeset:
     needs: upload
+    permissions:
+      id-token: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

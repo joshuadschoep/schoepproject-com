@@ -42,6 +42,7 @@ jobs:
           STACK_NAME: ${{ secrets.STACK_NAME }}
           TEMPLATE_URL: ${{ needs.upload.outputs.S3_URL }}/Infrastructure.yml
           CHANGESET_NAME: ${{ secrets.STACK_NAME}}-CI-Changes-${{ github.sha }}
+          CHANGESET_TAGS: Key="schoepproject:group",Value="applications" Key="schoepproject:subgroup",Value="com" Key="schoepproject:layer",Value="application"
           CHANGESET_ROLE: ${{ secrets.AWS_CHANGESET_ROLE }}
       - name: Echo review link
         run: |

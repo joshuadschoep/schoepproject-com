@@ -34,6 +34,7 @@ echo "aws cloudformation create-change-set \
   --change-set-type $CHANGESET_TYPE \
   --change-set-name $CHANGESET_NAME \
   --role-arn $CHANGESET_ROLE \
+  --tags "${CHANGESET_TAGS}" \
   --output json"
 
 CHANGESET=$(aws cloudformation create-change-set \
@@ -43,6 +44,7 @@ CHANGESET=$(aws cloudformation create-change-set \
   --change-set-name $CHANGESET_NAME \
   --role-arn $CHANGESET_ROLE \
   --capabilities "CAPABILITY_NAMED_IAM" \
+  --tags $CHANGESET_TAGS \
   --output json)
 
 if [ $? -ne 0 ]; then

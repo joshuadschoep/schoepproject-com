@@ -53,7 +53,7 @@ Resources:
       DistributionConfig:
         Enabled: true
         Origins:
-          - DomainName: !Ref StaticBucket
+          - DomainName: !GetAtt StaticBucket.DomainName
             Id: S3BucketOrigin
             S3OriginConfig:
               OriginAccessIdentity: ''

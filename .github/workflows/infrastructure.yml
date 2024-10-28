@@ -42,7 +42,7 @@ jobs:
           STACK_NAME: ${{ secrets.STACK_NAME }}
           TEMPLATE_URL: ${{ needs.upload.outputs.S3_URL }}/Infrastructure.yml
           CHANGESET_NAME: ${{ secrets.STACK_NAME}}-CI-Changes-${{ github.sha }}
-          CHANGESET_ROLE: ${{ inputs.AWS_CHANGESET_ROLE }}
+          CHANGESET_ROLE: ${{ secrets.AWS_CHANGESET_ROLE }}
       - name: Echo review link
         run: |
           echo "#### Review and deploy here" >> $GITHUB_STEP_SUMMARY

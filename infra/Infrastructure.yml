@@ -63,7 +63,7 @@ Resources:
           Compress: true
           # Speed up caching while developing
           DefaultTTL: 60
-          TargetOriginId: S3OriginConfig
+          TargetOriginId: S3BucketOrigin
           ViewerProtocolPolicy: 'redirect-to-https'
         DefaultRootObject: index.html
         HttpVersion: http1.1

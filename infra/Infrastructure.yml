@@ -44,8 +44,8 @@ Resources:
     Properties:
       DomainName: !FindInMap [Domains, Prod, Name]
       DomainValidationOptions:
-        - HostedZoneId: !ImportValue SchoepprojectHostedZoneID
         - DomainName: !FindInMap [Domains, Prod, Name]
+          HostedZoneId: !ImportValue SchoepprojectHostedZoneID
       ValidationMethod: DNS
   CDN:
     Type: AWS::CloudFront::Distribution

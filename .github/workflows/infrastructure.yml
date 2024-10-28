@@ -23,7 +23,7 @@ jobs:
         env:
           LOCAL_DIRECTORY: infra
           AWS_S3_BUCKET: ${{ secrets.AWS_INFRA_BUCKET_NAME }}
-          AWS_S3_DIRECTORY: ${{ inputs.AWS_TEMPLATE_DIRECTORY }}
+          AWS_S3_DIRECTORY: ${{ vars.AWS_TEMPLATE_DIRECTORY }}
   changeset:
     needs: upload
     permissions:

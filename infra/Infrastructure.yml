@@ -52,6 +52,8 @@ Resources:
     Properties:
       DistributionConfig:
         Enabled: true
+        Aliases:
+          - !FindInMap [Domains, Prod, Name]
         Origins:
           - DomainName: !GetAtt StaticBucket.DomainName
             Id: S3BucketOrigin

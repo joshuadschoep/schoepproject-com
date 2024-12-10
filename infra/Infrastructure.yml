@@ -119,7 +119,7 @@ Resources:
               - s3:ListBucket
               - s3:ListObjects
             Resource:
-              - !Sub "arn:${AWS::Partition}:s3:::${StaticBucket}/*"
+              - !Sub "arn:${AWS::Partition}:s3:::${StaticBucket}"
           - Effect: Allow
             Action:
               - s3:PutObject

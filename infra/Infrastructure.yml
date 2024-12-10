@@ -109,8 +109,7 @@ Resources:
         Version: 2012-10-17
         Statement:
           Effect: Allow
-          Principal:
-            Service: cloudfront.amazonaws.com
+          Principal: "*"
           Action: s3:GetObject
           Resource: !Sub "arn:${AWS::Partition}:s3:::${StaticBucket}/*"
   UploadPolicy:

@@ -134,7 +134,7 @@ Resources:
   UploadRole:
     Type: AWS::IAM::Role
     Properties:
-      RoleName: schoepproject-com-s3-access
+      RoleName: schoepproject-com-site-upload
       PermissionsBoundary: !Ref PermissionsBoundary
       AssumeRolePolicyDocument:
         Version: "2012-10-17"

@@ -130,7 +130,7 @@ Resources:
               - s3:GetObject
               - s3:DeleteObject
             Resource:
-              - !Sub !Sub "arn:${AWS::Partition}:s3:::${StaticBucket}/*"
+              - !Sub "arn:${AWS::Partition}:s3:::${StaticBucket}/*"
   UploadRole:
     Type: AWS::IAM::Role
     Properties:

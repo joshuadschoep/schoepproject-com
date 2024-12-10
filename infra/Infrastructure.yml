@@ -39,8 +39,12 @@ Resources:
     DeletionPolicy: Retain
     UpdateReplacePolicy: Retain
     Properties:
-      AccessControl: "PublicRead",
       BucketName: !FindInMap [Domains, Prod, S3Name]
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
       WebsiteConfiguration:
         IndexDocument: index.html
   DnsRecord:

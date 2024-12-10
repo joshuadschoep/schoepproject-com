@@ -13,7 +13,7 @@
 # CHANGESET_ROLE Role to use while creating this changeset
 # TAGS Key=key,Value=value  list of tags to attach to changesets
 echo "Checking for existence of stack ${STACK_NAME}."
-aws cloudformation describe-stacks --stack-name $STACK_NAME
+aws cloudformation describe-stacks --stack-name $STACK_NAME > /dev/null 2>&1
 result=$?;
 
 if [ $result -eq 254 ]; then

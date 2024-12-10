@@ -1,0 +1,43 @@
+$linkTextColor: white !default;
+$linkUnderlinePaddingOffset: 12px !default;
+$linkActiveColor: transparentize($linkTextColor, 0.35) !default;
+
+$titleSize: 48px;
+$imageMargin: 0.8em;
+
+@mixin link {
+  color: $linkTextColor;
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+
+  &:active {
+    color: $linkActiveColor;
+  }
+
+  &:active::before {
+    background-image: linear-gradient(
+      90deg,
+      $linkActiveColor,
+      $linkActiveColor
+    );
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: $linkUnderlinePaddingOffset;
+    background-image: linear-gradient(90deg, $linkTextColor, $linkTextColor);
+    background-size: 0 1px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 0.34s ease-in;
+  }
+
+  &:hover::before {
+    transition: background-size 0.16s ease-out;
+    background-size: 100% 1px;
+  }
+}

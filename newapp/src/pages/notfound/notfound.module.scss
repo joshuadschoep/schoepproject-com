@@ -1,0 +1,72 @@
+@use 'styles/colors';
+@use 'styles/text' with (
+  $linkTextColor: #555,
+  $linkUnderlinePaddingOffset: 2px
+);
+
+.notfound {
+  display: flex;
+  color: #999;
+  flex-direction: column;
+
+  .body {
+    min-height: 70vh;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    &::before {
+      content: '';
+      flex-grow: 1;
+    }
+
+    &::after {
+      content: '';
+      flex-grow: 2;
+    }
+  }
+
+  .left,
+  .right {
+    padding: 5px 10px;
+
+    h2,
+    p {
+      padding: 5px;
+      margin: 0;
+    }
+
+    a {
+      @include text.link;
+      font-weight: 500;
+    }
+  }
+
+  .left {
+    text-align: right;
+    position: relative;
+  }
+
+  .left::after {
+    position: absolute;
+    content: '';
+    width: 2px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #999;
+  }
+
+  .right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}

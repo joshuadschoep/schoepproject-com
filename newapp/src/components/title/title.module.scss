@@ -1,0 +1,112 @@
+@use 'styles';
+
+$titleSize: 36px;
+$tabletTitleSize: 30px;
+$phoneTitleSize: 24px;
+$titleSizeBig: 48px;
+$tabletTitleSizeBig: 40px;
+$phoneTitleSizeBig: 30px;
+$logoMargin: styles.$imageMargin;
+
+@mixin sizes($size: $titleSize) {
+  font-size: $size;
+  line-height: $size;
+}
+
+.title {
+  color: styles.$header-textColor;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+  .titleRow {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    grid-template-columns: $titleSize 1fr;
+
+    .icon,
+    h1 {
+      @include sizes($titleSize);
+
+      @include styles.tablet {
+        @include sizes($tabletTitleSize);
+      }
+
+      @include styles.phone {
+        @include sizes($phoneTitleSize);
+      }
+    }
+
+    h1 {
+      margin: 0;
+      margin-left: $logoMargin;
+      font-weight: 300;
+    }
+
+    .icon {
+      align-self: last baseline;
+    }
+  }
+
+  sub {
+    margin-top: 0.8em;
+    font-size: 0.9em;
+  }
+}
+
+.title.big {
+  .titleRow {
+    grid-template-columns: $titleSizeBig 1fr;
+
+    @include styles.horizontal-tablet {
+      grid-template-columns: $tabletTitleSizeBig 1fr;
+    }
+
+    @include styles.vertical-tablet {
+      grid-template-columns: $tabletTitleSizeBig 1fr;
+    }
+
+    @include styles.phone {
+      grid-template-columns: $phoneTitleSizeBig 1fr;
+    }
+  }
+
+  .icon,
+  h1 {
+    @include sizes($titleSizeBig);
+
+    @include styles.horizontal-tablet {
+      @include sizes($tabletTitleSizeBig);
+    }
+
+    @include styles.vertical-tablet {
+      @include sizes($tabletTitleSizeBig);
+    }
+
+    @include styles.phone {
+      @include sizes($phoneTitleSizeBig);
+    }
+  }
+
+  .icon {
+    width: $titleSizeBig;
+    height: $titleSizeBig;
+
+    @include styles.horizontal-tablet {
+      width: $tabletTitleSizeBig;
+      height: $tabletTitleSizeBig;
+    }
+
+    @include styles.vertical-tablet {
+      width: $tabletTitleSizeBig;
+      height: $tabletTitleSizeBig;
+    }
+
+    @include styles.phone {
+      width: $phoneTitleSizeBig;
+      height: $phoneTitleSizeBig;
+    }
+  }
+}

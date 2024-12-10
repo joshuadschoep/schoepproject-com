@@ -1,0 +1,40 @@
+@use 'styles';
+
+.skills {
+  padding: styles.$standardVerticalMargin styles.$outsideMargin;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: stretch;
+
+  ul {
+    display: inline-block;
+    line-height: 1em;
+    list-style: none;
+    padding-left: 0;
+    font-weight: 300;
+    margin: 1em;
+    margin-bottom: 5em;
+
+    h2 {
+      font-weight: 400;
+      margin-top: 0;
+      margin-bottom: 1em;
+    }
+
+    p {
+      margin-top: 1.5em;
+      margin-bottom: 0.3em;
+    }
+  }
+
+  @include styles.vertical-tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include styles.phone {
+    grid-template-columns: 1fr;
+    ul {
+      display: block;
+    }
+  }
+}

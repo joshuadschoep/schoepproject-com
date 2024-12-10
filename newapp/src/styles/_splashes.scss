@@ -1,0 +1,30 @@
+@use 'styles/sizes';
+
+$standardVerticalMargin: 8em !default;
+$outsideMargin: 8vw !default;
+$insideMargin: calc($outsideMargin / 2) !default;
+
+@mixin section-header {
+  text-align: center;
+  margin-bottom: 2.5em;
+  font-size: 32px;
+
+  svg {
+    height: 32px;
+    width: 32px;
+  }
+
+  @include sizes.vertical-tablet {
+    margin-bottom: 2em;
+  }
+
+  @include sizes.phone {
+    margin-bottom: 1em;
+    font-size: 28px;
+
+    svg {
+      height: 32px;
+      width: 32px;
+    }
+  }
+}

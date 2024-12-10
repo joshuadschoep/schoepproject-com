@@ -19,11 +19,22 @@
 .env.test.local
 .env.production.local
 
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 /images
 
 # ide
 /.vscode
+
+# generated types
+.astro/
+
+# environment variables
+.env
+
+# macOS-specific files
+.DS_Store

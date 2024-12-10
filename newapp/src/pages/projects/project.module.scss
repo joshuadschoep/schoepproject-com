@@ -1,0 +1,23 @@
+@use 'styles';
+
+.projects {
+  padding: styles.$standardVerticalMargin styles.$outsideMargin;
+
+  h2 {
+    text-align: center;
+  }
+
+  .projectSet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 3rem;
+
+    @include styles.tablet {
+      grid-template-columns: 1fr;
+    }
+
+    @include styles.phone {
+      grid-template-columns: 1fr;
+    }
+  }
+}

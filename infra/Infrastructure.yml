@@ -1,5 +1,15 @@
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: "2010-09-09"
 Description: Cloud resources required to deploy schoepproject.com and subroutes
+Parameters:
+  RepositoryOrganization:
+    Type: String
+    Default: joshuadschoep
+  RepositoryName:
+    Type: String
+    Default: schoepproject-com
+  PermissionsBoundary:
+    Type: String
+    Default: arn:aws:iam::145724753995:policy/schoepproject-general-permissions-boundary
 Mappings:
   Domains:
     Prod:
@@ -58,7 +68,7 @@ Resources:
           - DomainName: !GetAtt StaticBucket.DomainName
             Id: S3BucketOrigin
             S3OriginConfig:
-              OriginAccessIdentity: ''
+              OriginAccessIdentity: ""
             OriginAccessControlId: !GetAtt CDNAccess.Id
         DefaultCacheBehavior:
           CachePolicyId: !FindInMap [CachingPolicies, CachingOptimized, Id]
@@ -66,7 +76,7 @@ Resources:
           # Speed up caching while developing
           DefaultTTL: 60
           TargetOriginId: S3BucketOrigin
-          ViewerProtocolPolicy: 'redirect-to-https'
+          ViewerProtocolPolicy: "redirect-to-https"
         DefaultRootObject: index.html
         HttpVersion: http1.1
         PriceClass: !FindInMap [CDNPriceClasses, USAndEurope, Id]
@@ -95,4 +105,45 @@ Resources:
           Principal:
             Service: cloudfront.amazonaws.com
           Action: s3:GetObject
-          Resource: !Sub 'arn:${AWS::Partition}:s3:::${StaticBucket}/*'
+          Resource: !Sub "arn:${AWS::Partition}:s3:::${StaticBucket}/*"
+  UploadPolicy:
+    Type: AWS::IAM::RolePolicy
+    Properties:
+      RoleName: !Ref UploadRole
+      PolicyName: schoepproject-com-site-upload
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - s3:ListBucket
+            Resource:
+              - !Ref StaticBucket
+            Condition:
+              StringLike:
+                s3:prefix: "*"
+          - Effect: Allow
+            Action:
+              - s3:PutObject
+              - s3:AbortMultipartUpload
+              - s3:ListMultipartUploadParts
+              - s3:GetObject
+              - s3:DeleteObject
+            Resource:
+              - !Sub "${StaticBucket}/*"
+  UploadRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: schoepproject-com-s3-access
+      PermissionsBoundary: !Ref PermissionsBoundary
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: arn:aws:iam::145724753995:oidc-provider/token.actions.githubusercontent.com
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:sub: !Sub repo:${RepositoryOrganization}/${RepositoryName}:ref:refs/heads/*
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com

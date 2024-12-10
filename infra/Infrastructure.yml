@@ -118,10 +118,7 @@ Resources:
             Action:
               - s3:ListBucket
             Resource:
-              - !Ref StaticBucket
-            Condition:
-              StringLike:
-                s3:prefix: "*"
+              - !Sub "arn:${AWS::Partition}:s3:::${StaticBucket}/*"
           - Effect: Allow
             Action:
               - s3:PutObject

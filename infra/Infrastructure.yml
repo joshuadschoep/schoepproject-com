@@ -117,6 +117,7 @@ Resources:
           - Effect: Allow
             Action:
               - s3:ListBucket
+              - s3:ListObjects
             Resource:
               - !Sub "arn:${AWS::Partition}:s3:::${StaticBucket}/*"
           - Effect: Allow
@@ -141,6 +142,6 @@ Resources:
               Federated: arn:aws:iam::145724753995:oidc-provider/token.actions.githubusercontent.com
             Action: sts:AssumeRoleWithWebIdentity
             Condition:
-              StringEquals:
+              StringLike:
                 token.actions.githubusercontent.com:sub: !Sub repo:${RepositoryOrganization}/${RepositoryName}:ref:refs/heads/*
                 token.actions.githubusercontent.com:aud: sts.amazonaws.com

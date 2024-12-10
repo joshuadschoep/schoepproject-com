@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const FiveSlicesIcon = () => {
   return (
     <svg width="36" height="36" viewBox="0 0 8.4666665 8.4666666">

@@ -6,7 +6,7 @@ export const Projects = () => {
   return (
     <section className={styles.projects}>
       {PROJECTS.map((group, index) => (
-        <article>
+        <article key={index}>
           <h2>{group.group}</h2>
           <hr />
           <div className={styles.projectSet}>

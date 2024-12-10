@@ -1,0 +1,22 @@
+name: Deploy App
+on:
+  push:
+    branches:
+      - main
+      - seo
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: ${{ secrets.AWS_UPLOAD_APP_ROLE }}
+        aws-region: ${{ secrets.AWS_REGION }}
+    - run: npm run check
+    - run: npm run build
+    - run: bash ./.github/scripts/syncFolderWithS3.sh
+      env:
+        LOCAL_DIRECTORY: dist
+        AWS_S3_BUCKET: ${{ secrets.AWS_APP_BUCKET_NAME }}

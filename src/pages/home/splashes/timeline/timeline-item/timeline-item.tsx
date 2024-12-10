@@ -1,4 +1,4 @@
-import React from 'react';
+
 import type { TimelineEvent } from '../types.d.ts';
 import styles from './timeline-item.module.scss';
 

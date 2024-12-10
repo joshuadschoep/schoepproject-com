@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { FourDiamondsIcon, FourSlicesIcon, ThreeCirclesIcon } from 'assets';
 
 export const LABEL = 'My Top Skills';

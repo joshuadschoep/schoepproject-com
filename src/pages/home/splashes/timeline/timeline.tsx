@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { TimelineItem } from './timeline-item';
 import styles from './timeline.module.scss';
 import { LABEL, TIMELINE_ITEMS } from './const';

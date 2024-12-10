@@ -22,8 +22,6 @@ export interface InputProps {
 const ANCHOR = 'error-anchor-element';
 
 export const Input = ({
-  value,
-  onChange,
   required,
   name,
   label,

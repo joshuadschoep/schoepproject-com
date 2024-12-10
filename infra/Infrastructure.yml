@@ -72,7 +72,7 @@ Resources:
         Aliases:
           - !FindInMap [Domains, Prod, Name]
         Origins:
-          - DomainName: !GetAtt StaticBucket.WebsiteURL
+          - DomainName: !GetAtt StaticBucket.DomainName
             Id: S3BucketOrigin
             CustomOriginConfig:
               OriginProtocolPolicy: https-only

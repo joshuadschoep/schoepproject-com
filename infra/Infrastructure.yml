@@ -72,8 +72,8 @@ Resources:
         Aliases:
           - !FindInMap [Domains, Prod, Name]
         Origins:
-          - DomainName:
-              !Select [1, !Split ["https://", !GetAtt StaticBucket.DomainName]]
+          - DomainName: !Sub ${StaticBucket}.s3-website-${AWS::Region}.amazonaws.com
+
             Id: S3BucketOrigin
             CustomOriginConfig:
               OriginProtocolPolicy: https-only

@@ -16,6 +16,7 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_UPLOAD_APP_ROLE }}
           aws-region: ${{ secrets.AWS_REGION }}
+      - run: npm i
       - run: npm run check
       - run: npm run build
       - run: bash ./.github/scripts/syncFolderWithS3.sh

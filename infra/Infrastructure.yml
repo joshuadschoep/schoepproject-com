@@ -39,7 +39,10 @@ Resources:
     DeletionPolicy: Retain
     UpdateReplacePolicy: Retain
     Properties:
+      AccessControl: "PublicRead",
       BucketName: !FindInMap [Domains, Prod, S3Name]
+      WebsiteConfiguration:
+        IndexDocument: index.html
   DnsRecord:
     Type: AWS::Route53::RecordSet
     Properties:
@@ -65,10 +68,10 @@ Resources:
         Aliases:
           - !FindInMap [Domains, Prod, Name]
         Origins:
-          - DomainName: !GetAtt StaticBucket.DomainName
+          - DomainName: !GetAtt StaticBucket.WebsiteURL
             Id: S3BucketOrigin
-            S3OriginConfig:
-              OriginAccessIdentity: ""
+            CustomOriginConfig:
+              OriginProtocolPolicy: https-only
             OriginAccessControlId: !GetAtt CDNAccess.Id
         DefaultCacheBehavior:
           CachePolicyId: !FindInMap [CachingPolicies, CachingOptimized, Id]
@@ -77,8 +80,7 @@ Resources:
           DefaultTTL: 60
           TargetOriginId: S3BucketOrigin
           ViewerProtocolPolicy: "redirect-to-https"
-        DefaultRootObject: index.html
-        HttpVersion: http1.1
+        HttpVersion: http2and3
         PriceClass: !FindInMap [CDNPriceClasses, USAndEurope, Id]
         ViewerCertificate:
           AcmCertificateArn: !Ref Certificate

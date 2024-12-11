@@ -76,8 +76,7 @@ Resources:
 
             Id: S3BucketOrigin
             CustomOriginConfig:
-              OriginProtocolPolicy: https-only
-            # OriginAccessControlId: !GetAtt CDNAccess.Id
+              OriginProtocolPolicy: http-only
         DefaultCacheBehavior:
           CachePolicyId: !FindInMap [CachingPolicies, CachingOptimized, Id]
           Compress: true
@@ -93,14 +92,6 @@ Resources:
             !FindInMap [CdnSslConfig, Tls1.2SniOnly, SslVersion]
           SslSupportMethod:
             !FindInMap [CdnSslConfig, Tls1.2SniOnly, SupportMethod]
-  # CDNAccess:
-  #   Type: AWS::CloudFront::OriginAccessControl
-  #   Properties:
-  #     OriginAccessControlConfig:
-  #       Name: !Ref StaticBucket
-  #       OriginAccessControlOriginType: s3
-  #       SigningBehavior: always
-  #       SigningProtocol: sigv4
   BucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:

@@ -1,4 +1,4 @@
-@use 'styles';
+@use "styles";
 
 .skills {
   color: #333;
@@ -21,7 +21,8 @@
   }
 
   .columns {
-    @include styles.columns(3);
+    @include styles.columns(2);
+    padding: 0 !important;
     align-items: stretch;
 
     article {

@@ -1,27 +1,19 @@
-@use 'styles/sizes';
-@use 'styles/splashes';
+@use "styles/sizes";
+@use "styles/splashes";
 
 @mixin -columns($numCols) {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat($numCols, 1fr);
+  gap: splashes.$standardVerticalMargin;
   text-align: center;
   justify-content: center;
+  padding: splashes.$standardVerticalMargin splashes.$outsideMargin;
 
   > * {
     flex-basis: calc(100% / $numCols);
-    margin: splashes.$standardVerticalMargin;
-    margin-left: splashes.$insideMargin;
-    margin-right: splashes.$insideMargin;
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-
-  > :first-child {
-    margin-left: splashes.$outsideMargin;
-  }
-
-  > :last-child {
-    margin-right: splashes.$outsideMargin;
   }
 }
 

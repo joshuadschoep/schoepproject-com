@@ -22,4 +22,4 @@ jobs:
       - run: bash ./.github/scripts/syncFolderWithS3.sh
         env:
           LOCAL_DIRECTORY: dist
-          AWS_S3_BUCKET: ${{ vars.AWS_APP_BUCKET_NAME }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_APP_BUCKET_NAME }}

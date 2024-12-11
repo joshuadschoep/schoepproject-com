@@ -1,34 +1,30 @@
+import { FourDiamondsIcon, FourSlicesIcon, ThreeCirclesIcon } from "assets";
 
-import { FourDiamondsIcon, FourSlicesIcon, ThreeCirclesIcon } from 'assets';
-
-export const LABEL = 'My Top Skills';
+export const LABEL = "My Top Skills";
 
 export const SKILLS = [
   {
     HeaderIcon: <ThreeCirclesIcon />,
-    label: 'React',
-    description: `With 4 years experience both in starting new React projects and upgrading existing projects, it is by far my most practiced front-end framework. I began using React as an alternative to Angular projects at LGS Laboratories, and convinced my teams there and at CACI to use React for its faster onboarding and greater support over Angular 8.
-    
-      Since then, I developed in React full-time at Woodridge Software for 3 years for our clients and for internal efforts. I am skilled in beginning new React projects through Webpack, ESBuild, and Typescript; upgrading stale React projects to recent versions; and moving projects from other frameworks such as Angular and VueJS.
-      
-      In personal and team projects after Woodridge, I have managed React and NextJS projects in the cloud. I have used security best practices and CI guidelines to deploy AWS CloudFront, EC2, and Lambda.`,
+    label: "React",
+    description: `With 5 years experience in starting new React projects and upgrading existing projects, I have been able to help my teams write better code, and deploy faster.
+
+      My goal has consistently been clean, principled code that anyone will be able to read 2 months later. Working with large, public websites in multiple industries has taught me about accessibility for all users, testing early for later refactors, and the importance of SOLID principles for frontends.`,
   },
   {
     HeaderIcon: <FourDiamondsIcon />,
-    label: 'Modern Backends',
-    description: `I have experience in a multitude of back-end languages and frameworks such as Go, NodeJS, Python (Flask and Django), and Laravel. With Woodridge Software, I have been a member of teams upgrading existing PHP into Laravel on AWS, as well as moving two clients into Go microservices.
-  
-    Along with a wide array of back-end languages, I have 4 years experience in DevOps for containerized applications on Docker/Kubernetes, including full CI/CD capabilities for these apps; unit, integration, e2e, and smoke testing; static security testing (SAST); and modern cloud deployment patterns.
+    label: "Go",
+    description: `Go is a fast, versatile langauge that I've used professionally in web and data projects for 3 years. I've learned from the community surrounding Go, and written better code in all languages because of it.
     
-    With Merch Alert, my most recent project, I have successfully set up a team of engineers to run both Go and NodeJS serverless on AWS.`,
+    General readability and principled code are the key to this language, and as such it is my favorite backend and program language.`,
   },
   {
     HeaderIcon: <FourSlicesIcon />,
-    label: 'Cloud Native',
-    description: `Becoming a senior engineer with Woodridge required me to provide cloud architecture and system guidance to clients and internal engineers. I would contribute to CloudFormation development, and provided security and IAM recommendations to architects and clients alike.
-    
-    My personal web footprint has greatly helped over the years, with a lot of my education coming from mistakes and successes over time in personal projects.
-    
-    Merch Alert and all my personal sites are built using cloud-native IaC technologies. I've used a mix of CloudFormation and Serverless Application Model, and have trained fellow project leads on Merch Alert on how to use these technologies to improve their tech stacks.`,
+    label: "Automation",
+    description: `Often the missing piece of front-end programmers is configuration, and thus I've made it a priority. Having a good linter, test suite, and CI/CD pipeline improves productivity for every developer while reducing overhead for architects. I've configured React apps with both TypeScript and ECMA, using Vite, CRA, and Webpack, on everything from CloudFront, EC2, and Heroku, to bare-metal on Spring Boot and Laravel.`,
+  },
+  {
+    HeaderIcon: <ThreeCirclesIcon />,
+    label: "Cloud Native",
+    description: `Both personally and professionally, I've been working with and deploying to cloud environments for 4 years. I maintain apps under The Schoep Project, and have worked an cloud apps for multiple companies and projects.`,
   },
 ];

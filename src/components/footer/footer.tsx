@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { OpenBoxIcon } from '../../assets/svg/openBox';
 import { DESCRIPTORS, QUICK_LINKS } from './const';
 import styles from './footer.module.scss';
@@ -13,7 +12,7 @@ export const Footer = () => {
           {QUICK_LINKS.map((link, index) => (
             <li key={index}>
               {link.link ? (
-                <Link to={link.href}>{link.label}</Link>
+                <a href={link.href}>{link.label}</a>
               ) : (
                 <a
                   href={link.href}

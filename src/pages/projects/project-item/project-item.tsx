@@ -1,4 +1,4 @@
-import { Project } from './types';
+import type { Project } from './types';
 import styles from './project-item.module.scss';
 
 export type ProjectItemProps = Project;

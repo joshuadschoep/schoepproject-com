@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero {
+  position: relative;
+}
+
+.hero::before {
+  z-index: -1;
+  position: absolute;
+  content: '';
+  width: 100vw;
+  height: 100%;
+  background: radial-gradient(circle at top right, #245b91, transparent 70vw),
+    radial-gradient(at top left, #249191, transparent 125vw),
+    radial-gradient(at bottom right, #24915b, transparent 95vw),
+    radial-gradient(circle at bottom left, #242491, transparent 60vw);
+}
+
+@layer components {
+  .underline-link {
+    @apply after:block after:bg-white after:h-px after:w-0 hover:after:w-full after:ease-in-out after:duration-300;
+  }
+}

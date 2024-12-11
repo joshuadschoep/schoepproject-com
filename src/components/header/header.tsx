@@ -1,6 +1,5 @@
 import styles from './header.module.scss';
 import { LINKS } from './const';
-import { Link } from 'react-router-dom';
 import { Title } from 'components/title';
 import { useCallback, useEffect, useRef } from 'react';
 
@@ -36,9 +35,9 @@ export const Header = () => {
           {LINKS.map((link, i) => (
             <li key={i}>
               {link.link ? (
-                <Link to={link.href} className={styles.link}>
+                <a href={link.href} className={styles.link}>
                   {link.label}{' '}
-                </Link>
+                </a>
               ) : (
                 <a href={link.href} className={styles.link}>
                   {link.label}

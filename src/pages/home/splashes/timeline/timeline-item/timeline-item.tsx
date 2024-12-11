@@ -1,4 +1,5 @@
-import { TimelineEvent } from '../types';
+
+import type { TimelineEvent } from '../types.d.ts';
 import styles from './timeline-item.module.scss';
 
 export type TimelineItemProps = TimelineEvent;

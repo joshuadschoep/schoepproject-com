@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import styles from './input.module.scss';
 import { Tooltip } from 'react-tooltip';
 import { useLayoutEffect, useState } from 'react';
-import { UseFormRegister } from 'react-hook-form';
+import type { UseFormRegister } from 'react-hook-form';
 
 export interface InputProps {
   label?: string;
@@ -22,8 +22,6 @@ export interface InputProps {
 const ANCHOR = 'error-anchor-element';
 
 export const Input = ({
-  value,
-  onChange,
   required,
   name,
   label,

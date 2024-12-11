@@ -1,8 +1,7 @@
-@use 'styles';
+@use "styles";
 
 .skills {
-  background: fixed linear-gradient(to top left, #222, #666);
-  color: styles.$header-textColor;
+  color: #333;
   padding: styles.$standardVerticalMargin styles.$outsideMargin;
 
   h2 {
@@ -22,7 +21,8 @@
   }
 
   .columns {
-    @include styles.columns(3);
+    @include styles.columns(2);
+    padding: 0 !important;
     align-items: stretch;
 
     article {
@@ -61,7 +61,7 @@
       }
 
       p {
-        color: styles.$header-textColor;
+        color: #111;
         margin: 0;
         flex-grow: 1;
       }

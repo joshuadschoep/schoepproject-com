@@ -1,0 +1,14 @@
+---
+import { Footer, Header } from "components";
+import Layout from "layouts/layout.astro";
+import 'styles/root.scss';
+import { Projects as Component } from "./projects";
+---
+
+<Layout>
+    <main>
+        <Header client:load />
+        <Component />
+        <Footer />
+      </main>
+</Layout>

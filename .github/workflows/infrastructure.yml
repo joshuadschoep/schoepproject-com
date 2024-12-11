@@ -1,0 +1,48 @@
+name: Deploy Infrastructure
+on:
+  push:
+    branches:
+      - main
+      - seo
+
+jobs:
+  upload:
+    permissions:
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_UPLOAD_INFRA_ROLE }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - run: bash ./.github/scripts/syncFolderWithS3.sh
+        id: upload
+        env:
+          LOCAL_DIRECTORY: infra
+          AWS_S3_BUCKET: ${{ secrets.AWS_INFRA_BUCKET_NAME }}
+          AWS_S3_DIRECTORY: ${{ vars.AWS_TEMPLATE_DIRECTORY }}
+  changeset:
+    needs: upload
+    permissions:
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_DEPLOY_INFRA_ROLE }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - run: bash ./.github/scripts/createChangeSet.sh
+        id: createChangeSet
+        env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          STACK_NAME: ${{ secrets.STACK_NAME }}
+          TEMPLATE_URL: https://${{ secrets.AWS_INFRA_BUCKET_NAME }}.s3.amazonaws.com/${{ vars.AWS_TEMPLATE_DIRECTORY }}/Infrastructure.yml
+          CHANGESET_NAME: ${{ secrets.STACK_NAME}}-CI-Changes-${{ github.sha }}
+          CHANGESET_TAGS: Key="schoepproject:group",Value="applications" Key="schoepproject:subgroup",Value="com" Key="schoepproject:layer",Value="application"
+          CHANGESET_ROLE: ${{ secrets.AWS_CHANGESET_ROLE }}
+      - name: Echo review link
+        run: |
+          echo "#### Review and deploy here" >> $GITHUB_STEP_SUMMARY
+          echo "[${{ steps.createChangeSet.outputs.STACK_ID }}](${{ steps.createChangeSet.outputs.CHANGESET_URL }})" >> $GITHUB_STEP_SUMMARY

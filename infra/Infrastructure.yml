@@ -81,7 +81,7 @@ Resources:
       DomainName: !FindInMap [Domains, Prod, Name]
       DomainValidationOptions:
         - DomainName: !FindInMap [Domains, Prod, Name]
-          HostedZoneId: !ImportValue SchoepOrgHostedZoneID
+          HostedZoneId: Z04384493BYLG54AC0Z1D
       ValidationMethod: DNS
   CDN:
     Type: AWS::CloudFront::Distribution

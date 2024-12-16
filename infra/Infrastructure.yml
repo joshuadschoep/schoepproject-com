@@ -62,7 +62,7 @@ Resources:
     Properties:
       Name: !FindInMap [Domains, Redirect, FullyResolvedName]
       Type: A
-      HostedZoneId: !ImportValue SchoepOrgHostedZoneID
+      HostedZoneId: Z04384493BYLG54AC0Z1D
       AliasTarget:
         DNSName: !Sub ${RedirectBucket}.s3-website-${AWS::Region}.amazonaws.com
         HostedZoneId: !FindInMap [DnsAliasTargets, S3, UsEast1]
@@ -71,7 +71,7 @@ Resources:
     Properties:
       Name: !FindInMap [Domains, Prod, FullyResolvedName]
       Type: A
-      HostedZoneId: !ImportValue SchoepOrgHostedZoneID
+      HostedZoneId: Z04384493BYLG54AC0Z1D
       AliasTarget:
         DNSName: !GetAtt CDN.DomainName
         HostedZoneId: !FindInMap [DnsAliasTargets, CloudFront, Global]

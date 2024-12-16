@@ -13,16 +13,18 @@ Parameters:
 Mappings:
   Domains:
     Prod:
-      Name: www.schoepproject.com
-      FullyResolvedName: www.schoepproject.com.
-      S3Name: www-schoepproject-com-145724753995
+      Name: www.schoep.org
+      FullyResolvedName: www.schoep.org.
+      S3Name: www-schoep-org-145724753995
     Redirect:
-      Name: schoepproject.com
-      FullyResolvedName: schoepproject.com.
-      S3Name: redirect-schoepproject-com-145724753995
+      Name: schoep.org
+      FullyResolvedName: schoep.org.
+      S3Name: redirect-schoep-org-145724753995
   DnsAliasTargets:
     CloudFront:
-      HostedZone: Z2FDTNDATAQYW2
+      Global: Z2FDTNDATAQYW2
+    S3:
+      UsEast1: Z3AQBSTGFYJSTF
   CachingPolicies:
     CachingOptimized:
       Id: 658327ea-f89d-4fab-a63d-7e88639e58f6
@@ -47,15 +49,32 @@ Resources:
         RestrictPublicBuckets: false
       WebsiteConfiguration:
         IndexDocument: index.html
+  RedirectBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !FindInMap [Domains, Redirect, S3Name]
+      WebsiteConfiguration:
+        RedirectAllRequestsTo:
+          HostName: !FindInMap [Domains, Prod, Name]
+          Protocol: https
+  RedirectDnsRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      Name: !FindInMap [Domains, Redirect, FullyResolvedName]
+      Type: A
+      HostedZoneId: !ImportValue SchoepOrgHostedZoneID
+      AliasTarget:
+        DNSName: !Sub ${RedirectBucket}.s3-website-${AWS::Region}.amazonaws.com
+        HostedZoneId: !FindInMap [DnsAliasTargets, S3, UsEast1]
   DnsRecord:
     Type: AWS::Route53::RecordSet
     Properties:
       Name: !FindInMap [Domains, Prod, FullyResolvedName]
       Type: A
-      HostedZoneId: !ImportValue SchoepprojectHostedZoneID
+      HostedZoneId: !ImportValue SchoepOrgHostedZoneID
       AliasTarget:
         DNSName: !GetAtt CDN.DomainName
-        HostedZoneId: !FindInMap [DnsAliasTargets, CloudFront, HostedZone]
+        HostedZoneId: !FindInMap [DnsAliasTargets, CloudFront, Global]
   Certificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
@@ -73,7 +92,6 @@ Resources:
           - !FindInMap [Domains, Prod, Name]
         Origins:
           - DomainName: !Sub ${StaticBucket}.s3-website-${AWS::Region}.amazonaws.com
-
             Id: S3BucketOrigin
             CustomOriginConfig:
               OriginProtocolPolicy: http-only

@@ -16,10 +16,4 @@ export const QUICK_LINKS = [
     link: false,
     newPage: true,
   },
-  {
-    href: "https://assets.schoepproject.com/joshua-schoep-resume.pdf",
-    label: "Resume (PDF)",
-    link: false,
-    newPage: true,
-  },
 ];

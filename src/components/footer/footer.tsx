@@ -1,12 +1,12 @@
-import { OpenBoxIcon } from '../../assets/svg/openBox';
-import { DESCRIPTORS, QUICK_LINKS } from './const';
-import styles from './footer.module.scss';
+import { OpenBoxIcon } from "../../assets/svg/openBox";
+import { DESCRIPTORS, QUICK_LINKS } from "./const";
+import styles from "./footer.module.scss";
 
 export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <article>
-        <h4 className={styles.footerTitle}>The Schoep Project</h4>
+        <h4 className={styles.footerTitle}>schoep.org</h4>
         <h5 className={styles.footerLabel}>Quick Links</h5>
         <ul className={styles.quickLinks}>
           {QUICK_LINKS.map((link, index) => (
@@ -16,7 +16,7 @@ export const Footer = () => {
               ) : (
                 <a
                   href={link.href}
-                  target={link.newPage ? '_blank' : ''}
+                  target={link.newPage ? "_blank" : ""}
                   rel="noreferrer"
                 >
                   {link.label}

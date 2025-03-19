@@ -52,8 +52,8 @@ export const PROJECTS = [
       {
         title: "Snowfall Charts",
         link: {
-          name: "snowfall.schoepproject.com",
-          href: "https://snowfall.schoepproject.com",
+          name: "snowfall.schoep.org",
+          href: "https://snowfall.schoep.org",
         },
         description:
           "A web scraper and application to display snowfall averages and totals across Colorado -- built for my friends who love skiing ever more than I do.",

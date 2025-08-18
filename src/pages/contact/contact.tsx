@@ -34,9 +34,13 @@ export const Contact = () => {
     };
 
     axios
-      .post('https://api.schoepproject.com/www/submit-form', httpBody)
+      .post('https://api.schoep.org/www/submit-form', httpBody)
       .then(() => setSubmitState('success'))
-      .catch(() => setSubmitState('failure'));
+      .catch(() => {
+        setSubmitState('failure');
+        setTimeout(() => setSubmitState('unsubmitted')
+        , 10 * 1000);
+            });
   }, [watch]);
 
   const onFormChange = useCallback(() => setSubmitState('unsubmitted'), []);
